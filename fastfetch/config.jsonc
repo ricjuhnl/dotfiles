@@ -99,12 +99,7 @@
           "key": " ├ 󰋊 ",
           "keyColor": "33",
       },
-      {
-          "type": "monitor",
-          "key": " └  ",
-          "keyColor": "33",
-      },
       "break",
-      "break",
+      "break"
   ]
 }
