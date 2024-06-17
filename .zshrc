@@ -40,6 +40,8 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/gruvbox.json)"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -85,7 +87,7 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias cls='clear'
 alias micro='micro -clipboard internal'
-alias s="kitty +kitten ssh"
+alias ff='fastfetch'
 
 #datahub network mount file
 source $HOME/.datahub
