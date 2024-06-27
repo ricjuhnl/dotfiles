@@ -87,7 +87,7 @@ function yy() {
 
 # Aliases
 alias ls='ls --color'
-alias ll='ls -la --color'
+alias ll='ls -la'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
 alias ohmyzsh="micro ~/.oh-my-zsh"
