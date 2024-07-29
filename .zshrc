@@ -56,7 +56,7 @@ if [[ -n $SSH_CONNECTION ]]; then
  fi
 
 # History
-HISTSIZE=5000
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
