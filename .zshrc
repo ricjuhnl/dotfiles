@@ -90,7 +90,6 @@ alias ls='ls --color'
 alias ll='ls -la'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
-alias ohmyzsh="micro ~/.oh-my-zsh"
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
@@ -98,9 +97,6 @@ alias ps='ps auxf'
 alias cls='clear'
 alias micro='micro -clipboard internal'
 alias ff='fastfetch'
-
-#datahub network mount file
-source $HOME/.datahub
 
 # Shell integrations
 eval "$(fzf --zsh)"
