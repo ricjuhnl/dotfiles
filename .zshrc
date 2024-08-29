@@ -44,9 +44,7 @@ bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -97,6 +95,8 @@ alias ps='ps auxf'
 alias cls='clear'
 alias micro='micro -clipboard internal'
 alias ff='fastfetch'
+alias yazi='yazi -p'
+alias s="kitten ssh"
 
 # Shell integrations
 eval "$(fzf --zsh)"
