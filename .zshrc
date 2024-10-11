@@ -34,7 +34,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load oh-my-posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/gruvbox.json)"
+eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/gruvbox.json)"
 
 # Keybindings
 bindkey '^p' history-search-backward
