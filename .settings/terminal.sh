@@ -1,1 +1,1 @@
-kitty
+alacritty
