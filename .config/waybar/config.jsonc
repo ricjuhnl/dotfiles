@@ -32,7 +32,7 @@
 	  "tooltip-format-ethernet": "{ifname}, {ipaddr}, {cidr}, {bandwidthDownBytes}",
 	  "tooltip-format-disconnected": "Disconnected",
 	  "max-length": 30,
-    "on-click": "kitty -e nmtui"
+    "on-click": "nm-connection-editor"
 },
   "pulseaudio": {
       "format": "{icon}{volume}%",
