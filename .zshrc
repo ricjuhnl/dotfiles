@@ -33,8 +33,11 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+#load starship
+eval "$(starship init zsh)"
+
 #load oh-my-posh
-eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/gruvbox.json)"
+# eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/gruvbox.json)"
 
 # Keybindings
 bindkey '^p' history-search-backward
@@ -95,7 +98,6 @@ alias ps='ps auxf'
 alias cls='clear'
 alias micro='micro -clipboard internal'
 alias ff='fastfetch'
-alias yazi='yazi -p'
 alias s="kitten ssh"
 
 # Shell integrations

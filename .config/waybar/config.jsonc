@@ -24,6 +24,7 @@
   },
   "network": {
 	  "format": "{ifname}",
+	  "interval": "10",
 	  "format-wifi": "{essid} ({signalStrength}%)   {ipaddr}",
 	  "format-ethernet": "{ifname}   {ipaddr}",
 	  "format-disconnected": "",
