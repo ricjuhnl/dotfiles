@@ -1,10 +1,10 @@
 
 # Dotfiles
 
-Repo for my Hyprland dotfiles, using stow:
-`git clone` in home folder
-`cd dotfiles`
-`stow .`
+Repo for my Hyprland dotfiles, using stow:  
+`git clone` in home folder  
+`cd dotfiles`  
+`stow .`  
 
 
 
