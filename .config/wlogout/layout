@@ -1,36 +1,24 @@
 {
     "label" : "lock",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh lock",
+    "action" : "hyprlock",
     "text" : "Lock",
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "logout",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh exit",
-    "text" : "Exit",
+    "action" : "hyprctl dispatch exit 0",
+    "text" : "Logout",
     "keybind" : "e"
 }
 {
     "label" : "shutdown",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh shutdown",
+    "action" : "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
-    "label" : "suspend",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh suspend",
-    "text" : "Suspend",
-    "keybind" : "u"
-}
-{
     "label" : "reboot",
-    "action" : "$HOME/dotfiles/hypr/scripts/power.sh reboot",
+    "action" : "systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
