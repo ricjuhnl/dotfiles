@@ -38,11 +38,11 @@ button:hover {
 }
 
 #workspaces button.focused {
-    color: @rosewater;
+    color: @teal;
 }
 
 #workspaces button.active {
-    color: @sapphire;
+    color: @pink;
 }
 
 #workspaces button.urgent {
