@@ -1,2 +1,4 @@
 .config/spicetify/Backup
 .config/spicetify/Extracted
+.config/micro/backups
+.config/micro/buffers
