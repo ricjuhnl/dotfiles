@@ -104,6 +104,7 @@ alias cls='clear'
 alias micro='micro -clipboard internal'
 alias ff='fastfetch'
 alias s="kitten ssh"
+alias rm="trash-put"
 
 # Shell integrations
 eval "$(fzf --zsh)"
