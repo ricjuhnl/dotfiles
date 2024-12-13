@@ -1,4 +1,4 @@
-@import "mocha.css"; 
+@import "mocha.css";
 
 * {
     font-family: "CaskaydiaCove Nerd Font";
@@ -9,16 +9,16 @@
 
 window#waybar {
     background: transparent;
-    background-color: @crust;
+    background-color: @base;
     color: @overlay0;
     transition-property: background-color;
     transition-duration: 0.1s;
 }
 
 #window {
-    margin: 8px;
-    padding-left: 10px;
-    padding-right: 8px;
+    margin: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
     color: @teal;
 }
 
@@ -34,7 +34,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 1px 4px;
+    padding: 1px 1px;
 }
 
 #workspaces button.focused {
@@ -56,19 +56,22 @@ button:hover {
 #temperature,
 #backlight,
 #wireplumber,
-#tray,
+
+#tray {
+    margin: 5px;
+}
+
 #mode,
 #scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #clock {
     color: @flamingo;
+    margin: 10px;
 }
 
 #clock.date {
@@ -77,38 +80,41 @@ button:hover {
 
 #pulseaudio {
     color: @blue;
+    margin: 5;
 }
 
 #network {
     color: @yellow;
-}
-
-#idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
-}
-
-#idle_inhibitor.activated {
-    color: @red;
+    margin: 5;
 }
 
 #battery {
     color: @green;
+    margin: 5;
 }
 
 #custom-notification {
     font-family: "CaskaydiaCove Nerd Font";
-    color: @teal;
+    color: @blue;
     margin-left: 10px;
     margin-right: 15px;
 }
+#custom-pacman {
+    color: @pink;
+    margin: 5;
+}
+
+#custom-spotify {
+    color: @green;
+    margin: 5;
+}
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
+.modules-left > widget:first-child > #workspaces {
     margin-left: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
+.modules-right > widget:last-child > #workspaces {
     margin-right: 5px;
 }

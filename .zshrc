@@ -101,7 +101,6 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias cls='clear'
-alias micro='micro -clipboard internal'
 alias ff='fastfetch'
 alias s="kitten ssh"
 alias rm="trash-put"
@@ -109,3 +108,7 @@ alias rm="trash-put"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+#source externals
+source "$HOME/.config/zshrc/00-init"
+source "$HOME/.vpn"
