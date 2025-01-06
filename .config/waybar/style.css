@@ -49,6 +49,10 @@ button:hover {
     background-color: @maroon;
 }
 
+#tray {
+    margin: 5px;
+}
+
 #pulseaudio,
 #cpu,
 #memory,
@@ -56,19 +60,8 @@ button:hover {
 #temperature,
 #backlight,
 #wireplumber,
-
-#tray {
-    margin: 5px;
-}
-
 #mode,
-#scratchpad {
-    margin-left: 4px;
-    margin-right: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
+#scratchpad,
 #clock {
     color: @flamingo;
     margin: 10px;
@@ -80,33 +73,32 @@ button:hover {
 
 #pulseaudio {
     color: @blue;
-    margin: 5;
+    margin: 5px;
 }
 
 #network {
     color: @yellow;
-    margin: 5;
+    margin: 5px;
 }
 
 #battery {
     color: @green;
-    margin: 5;
+    margin: 5px;
 }
 
 #custom-notification {
     font-family: "CaskaydiaCove Nerd Font";
     color: @blue;
-    margin-left: 10px;
-    margin-right: 15px;
+    margin: 10px;
 }
 #custom-pacman {
     color: @pink;
-    margin: 5;
+    margin: 5px;
 }
 
 #custom-spotify {
     color: @green;
-    margin: 5;
+    margin: 5px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

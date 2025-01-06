@@ -1,31 +1,25 @@
 {
   "position": "top",
   "height": 30,
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "clock",
-    "custom/spotify"
-  ],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock", "custom/spotify"],
   "modules-right": [
     "custom/pacman",
     "tray",
     "network",
     "pulseaudio",
     "battery",
-    "custom/notification"
+    "custom/notification",
   ],
   "clock": {
-    "format": "{:%a %d %b - %H:%M}"
+    "format": "{:%a %d %b - %H:%M}",
   },
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
-    "format": "{icon}{capacity}% ",
+    "format": "{icon} {capacity}% ",
     "format-warning": "{icon} {capacity}%",
     "format-critical": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
@@ -33,7 +27,7 @@
     "format-alt": "{icon} {time}",
     "format-full": " {capacity}%",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "tooltip-format": "{time}",
   },
   "network": {
     "format": "{ifname}",
@@ -46,15 +40,15 @@
     "tooltip-format-ethernet": "{ifname}, {ipaddr}, {cidr}, {bandwidthDownBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 30,
-    "on-click": "nm-connection-editor"
+    "on-click": "nm-connection-editor",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
+      "default": ["", "", " "],
     },
-    "on-click": "pwvucontrol"
+    "on-click": "pwvucontrol",
   },
   "custom/spotify": {
     "format": " {}",
@@ -62,21 +56,21 @@
     "interval": 30,
     "on-click": "playerctl -p spotify play-pause",
     "on-click-right": "killall spotify",
-    "on-scroll-up" : "playerctl -p spotify next",
-    "on-scroll-down" : "playerctl -p spotify previous",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
     "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
-    "exec-if": "pgrep spotify"
+    "exec-if": "pgrep spotify",
   },
   "custom/pacman": {
     "format": " {}",
     "interval": 3600,
     "exec": "checkupdates | wc -l",
     "on-click": "kitty -d / -e sudo pacman -Syu",
-    "signal": 8
+    "signal": 8,
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 5
+    "spacing": 5,
   },
   "custom/notification": {
     "tooltip": false,
@@ -89,13 +83,13 @@
       "inhibited-notification": "<span foreground='red'><sup></sup></span>",
       "inhibited-none": "",
       "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
+      "dnd-inhibited-none": "",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  }
+    "escape": true,
+  },
 }
