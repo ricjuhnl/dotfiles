@@ -100,6 +100,7 @@ alias ls='ls --color'
 alias ll='ls -la'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
+alias sshconfig="micro ~/.ssh/config"
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
