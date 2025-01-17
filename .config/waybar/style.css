@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-    font-family: "CaskaydiaCove Nerd Font";
+    font-family: "Meslo Nerd Font";
     font-size: 14px;
     min-height: 0;
     font-weight: bold;
@@ -87,7 +87,7 @@ button:hover {
 }
 
 #custom-notification {
-    font-family: "CaskaydiaCove Nerd Font";
+    font-family: "Meslo Nerd Font";
     color: @blue;
     margin: 10px;
 }
