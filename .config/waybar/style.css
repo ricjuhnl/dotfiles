@@ -9,7 +9,6 @@
 
 window#waybar {
     background: transparent;
-    background-color: @base;
     color: @overlay0;
     transition-property: background-color;
     transition-duration: 0.1s;
@@ -97,6 +96,11 @@ button:hover {
 }
 
 #custom-spotify {
+    color: @green;
+    margin: 5px;
+}
+
+#custom-vpn {
     color: @green;
     margin: 5px;
 }

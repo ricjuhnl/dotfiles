@@ -1,12 +1,15 @@
 
 # Dotfiles
 
-Repo for my Hyprland dotfiles, using stow:  
-`git clone` in home folder  
-`cd dotfiles`  
-`stow .`  
+Repo for my Hyprland dotfiles, using stow:\
+`git clone` in home folder\
+`cd dotfiles`\
+`stow .`
 
+# Monitors
 
+- Change the monitor settings for your setup: (.config/hypr/monitor.conf)
+- See monitor Wiki for more info (https://wiki.hyprland.org/Configuring/Monitors)
 
 ## Inspirations
 

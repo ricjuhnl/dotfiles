@@ -116,4 +116,5 @@ eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-source "$HOME/.vpn"
+#This is a personal VPN connection, remove this line or create your own
+source "$HOME/.vpnconnect"
