@@ -1,4 +1,4 @@
 #!/bin/bash
 ip add show | grep -qF tun0 \
-&& echo ' Connected' \
-|| echo ' Disconnected'
+&& echo ' VPN up' \
+|| echo ' VPN down'
