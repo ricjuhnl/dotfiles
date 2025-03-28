@@ -99,6 +99,8 @@ function yy() {
 alias ls='ls --color'
 alias ll='ls -la'
 alias cls='clear'
+alias cat='bat'
+alias nano='micro'
 alias zshconfig="micro ~/.zshrc"
 alias sshconfig="micro ~/.ssh/config"
 alias cp='cp -i'

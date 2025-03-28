@@ -69,6 +69,10 @@
     "exec": "$HOME/.config/waybar/vpn.sh",
     "max-length": "15",
   },
+  "custom/links": {
+    "format": "",
+    "on-click": "thorium-browser --app=https://web.whatsapp.com",
+  },
   "custom/pacman": {
     "format": " {}",
     "interval": 3600,

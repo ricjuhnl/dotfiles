@@ -85,6 +85,12 @@ button:hover {
     margin: 5px;
 }
 
+#custom-links {
+    font-size: 2em;
+    color: @green;
+    margin: 5px;
+}
+
 #custom-notification {
     font-family: "Meslo Nerd Font";
     color: @blue;
