@@ -109,7 +109,6 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias cls='clear'
 alias ff='fastfetch'
-alias s="kitten ssh"
 alias rm="trash-put"
 
 # Shell integrations
@@ -119,4 +118,5 @@ eval "$(zoxide init --cmd cd zsh)"
 #source externals
 source "$HOME/.config/zshrc/00-init"
 #This is a personal VPN connection, remove this line or create your own
-source "$HOME/.vpnconnect"
+source "$HOME/.vpn_openconnect"
+source "$HOME/.vpn_nm"
