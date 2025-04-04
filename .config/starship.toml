@@ -1,4 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+# Powerline style with Nord color palette
 
 format = """
 [](surface0)\

@@ -10,4 +10,8 @@ export WLR_NO_HARDWARE_CURSORS=1
 export ZSH="/usr/bin/zsh"
 export "MICRO_TRUECOLOR=1"
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+path+=('$HOME/.local/bin')
+path+=('$BUN_INSTALL/bin')
+path+=('/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin')
+
+export PATH

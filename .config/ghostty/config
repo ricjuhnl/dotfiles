@@ -1,0 +1,7 @@
+# This is the configuration file for Ghostty.
+#
+AdwStyleManager:color-scheme
+font-family = CaskaydiaCove Nerd Font
+font-size = 13
+window-padding-x = 2
+theme = dark:catppuccin-mocha,light:catppuccin-latte

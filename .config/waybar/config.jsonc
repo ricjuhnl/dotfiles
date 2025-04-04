@@ -4,6 +4,7 @@
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock", "custom/spotify"],
   "modules-right": [
+    "custom/vpn",
     "custom/pacman",
     "tray",
     "network",
@@ -53,14 +54,24 @@
   },
   "custom/spotify": {
     "format": " {}",
-    "max-length": 40,
-    "interval": 30,
+    "max-length": 60,
+    "interval": 10,
     "on-click": "playerctl -p spotify play-pause",
     "on-click-right": "killall spotify",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous",
     "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
     "exec-if": "pgrep spotify",
+  },
+  "custom/vpn": {
+    "interval": 3,
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/vpn.sh",
+    "max-length": "15",
+  },
+  "custom/links": {
+    "format": "",
+    "on-click": "thorium-browser --app=https://web.whatsapp.com",
   },
   "custom/pacman": {
     "format": " {}",
