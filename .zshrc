@@ -1,3 +1,9 @@
+# Fix egrep warning
+egrep() {
+  echo "egrep called from: ${functrace[1]}"
+  command grep -E "$@"
+}
+
 #keychain
 eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers)
 
@@ -98,17 +104,18 @@ function yy() {
 # Aliases
 alias ls='ls --color'
 alias ll='ls -la'
-alias cls='clear'
 alias cat='bat'
-alias nano='micro'
+alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
 alias sshconfig="micro ~/.ssh/config"
+alias nano="micro"
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias cls='clear'
 alias ff='fastfetch'
+alias s="kitten ssh"
 alias rm="trash-put"
 
 # Shell integrations
@@ -117,6 +124,5 @@ eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-#This is a personal VPN connection, remove this line or create your own
-source "$HOME/.vpn_openconnect"
 source "$HOME/.vpn_nm"
+source "$HOME/.vpn_openconnect"
