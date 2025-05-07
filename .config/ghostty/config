@@ -1,5 +1,9 @@
 # This is the configuration file for Ghostty.
 
 font-family = CaskaydiaCove Nerd Font
-font-size = 13
+font-size = 14
 theme = GruvboxDark
+
+window-save-state = always
+mouse-hide-while-typing = true
+cursor-style = bar
