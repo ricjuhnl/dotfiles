@@ -3,29 +3,13 @@ egrep() {
   echo "egrep called from: ${functrace[1]}"
   command grep -E "$@"
 }
-# SSH key management
-# Start SSH agent if not running
-if [ -z "$SSH_AUTH_SOCK" ]; then
-  eval "$(ssh-agent -s)" > /dev/null
-fi
 
 #keychain
 eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
 
-# Ensure keys are added to SSH agent for all contexts
-#ssh-add -q ~/.ssh/id_rsa_bastion 2>/dev/null
-#ssh-add -q ~/.ssh/id_rsa_servers 2>/dev/null
-
-# Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
