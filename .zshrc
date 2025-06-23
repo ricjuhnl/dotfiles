@@ -36,7 +36,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load starship
-export STARSHIP_CONFIG=~/dotfiles/.config/starship.toml
+export STARSHIP_CONFIG=~/dotfiles/.config/starship2.toml
 eval "$(starship init zsh)"
 
 #load oh-my-posh
