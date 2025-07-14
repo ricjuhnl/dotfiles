@@ -36,7 +36,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load starship
-export STARSHIP_CONFIG=~/dotfiles/.config/starship2.toml
+export STARSHIP_CONFIG=~/dotfiles/.config/starship.toml
 eval "$(starship init zsh)"
 
 #load oh-my-posh
@@ -107,9 +107,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
-alias cls='clear'
 alias ff='fastfetch'
-alias s="kitten ssh"
 alias rm="trash-put"
 
 # Shell integrations
