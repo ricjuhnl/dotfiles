@@ -1,44 +1,26 @@
+* {
+	all: unset;
+	background-image: none;
+	transition: 400ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
 window {
-    font-family: Meslo Nerd Font;
-    font-size: 14pt;
-    color: #cdd6f4;
-    /* text */
-    background-color: rgba(30, 30, 46, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
 
 button {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
-    border: none;
-    background-color: rgba(30, 30, 46, 0);
-    margin: 50px;
-    transition:
-        box-shadow 0.2s ease-in-out,
-        background-color 0.2s ease-in-out;
+	font-family: 'Material Symbols Outlined';
+	font-size: 10rem;
+	background-color: rgba(11, 11, 11, 0.4);
+	color: #FFFFFF;
+	margin: 2rem;
+	border-radius: 2rem;
+	padding: 3rem;
 }
 
+button:focus,
+button:active,
 button:hover {
-    background-color: rgba(49, 50, 68, 0.1);
-}
-
-button:focus {
-    background-color: #cba6f7;
-    color: #1e1e2e;
-}
-
-#lock {
-    background-image: image(url("./icons/lock.png"));
-}
-
-#logout {
-    background-image: image(url("./icons/logout.png"));
-}
-
-#shutdown {
-    background-image: image(url("./icons/shutdown.png"));
-}
-
-#reboot {
-    background-image: image(url("./icons/reboot.png"));
+	background-color: rgba(51, 51, 51, 0.5);
+	border-radius: 4rem;
 }
