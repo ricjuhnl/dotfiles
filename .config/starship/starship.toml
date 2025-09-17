@@ -1,0 +1,75 @@
+# Starship Configuration
+# A minimal, clean, and non-distracting prompt
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Configure the main prompt format (left side) - minimal and clean
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$docker_context\
+$line_break\
+$character"""
+
+# Configure the right side of the prompt
+right_format = """$kubernetes"""
+
+# Prompt character
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Directory
+[directory]
+read_only = " 󰌾"
+truncation_length = 0
+truncate_to_repo = false
+style = "bold cyan"
+
+# Git
+[git_branch]
+symbol = " "
+style = "dimmed purple"
+
+[git_status]
+style = "dimmed yellow"
+
+[git_commit]
+tag_symbol = ' '
+
+# Tools and Frameworks
+[docker_context]
+symbol = " "
+
+[kubernetes]
+symbol = "󱃾"
+format = '[$symbol $context\($namespace\)](dimmed blue) '
+disabled = false
+contexts = [
+  { context_pattern = "dev.local.cluster.k8s", style = "dimmed red", symbol = "💔 " },
+]
+
+[memory_usage]
+symbol = "󰍛 "
+
+# Version Control
+[fossil_branch]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+# System
+[hostname]
+ssh_symbol = " "
+
+[os.symbols]
+CachyOS = " "

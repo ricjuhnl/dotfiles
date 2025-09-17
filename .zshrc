@@ -36,7 +36,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load starship
-export STARSHIP_CONFIG=~/dotfiles/.config/starship.toml
+export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 #load oh-my-posh
@@ -70,6 +70,7 @@ HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+setopt CORRECT
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -98,7 +99,6 @@ function yy() {
 # Aliases
 alias ls='ls --color'
 alias ll='ls -la'
-alias cat='bat'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
 alias sshconfig="micro ~/.ssh/config"
