@@ -6,11 +6,13 @@ add_newline = true
 
 # Configure the main prompt format (left side) - minimal and clean
 format = """
+$os\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_status\
+$fill\
 $python\
 $nodejs\
 $rust\
@@ -19,8 +21,22 @@ $docker_context\
 $line_break\
 $character"""
 
+palette = "nord"
+
 # Configure the right side of the prompt
 right_format = """$kubernetes"""
+
+[fill]
+symbol = ' '
+
+[username]
+style_user = "orange"
+style_root = "red"
+format = "[$user]($style) "
+disabled = false
+
+[hostname]
+ssh_only = true
 
 # Prompt character
 [character]
@@ -30,28 +46,36 @@ error_symbol = "[❯](bold red)"
 # Directory
 [directory]
 read_only = " 󰌾"
-truncation_length = 0
-truncate_to_repo = false
-style = "bold cyan"
+truncation_length = 3
+truncation_symbol = '../'
+truncate_to_repo = true
+style = "bold fg:dark_blue"
 
 # Git
 [git_branch]
 symbol = " "
-style = "dimmed purple"
+style = "fg:green"
 
 [git_status]
-style = "dimmed yellow"
+style = "fg:yellow"
+format = '([$all_status$ahead_behind]($style) )'
 
 [git_commit]
 tag_symbol = ' '
 
 # Tools and Frameworks
 [docker_context]
-symbol = " "
+style = 'blue'
+symbol = '🐳 '
+only_with_files = true
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+format = '[$symbol $context\]($stle)'
+
 
 [kubernetes]
+style = 'teal'
 symbol = "󱃾"
-format = '[$symbol $context\($namespace\)](dimmed blue) '
+format = '[$symbol $context\($namespace\)]($style)'
 disabled = false
 contexts = [
   { context_pattern = "dev.local.cluster.k8s", style = "dimmed red", symbol = "💔 " },
@@ -67,9 +91,18 @@ symbol = " "
 [hg_branch]
 symbol = " "
 
-# System
-[hostname]
-ssh_symbol = " "
-
 [os.symbols]
 CachyOS = " "
+
+[palettes.nord]
+dark_blue = '#5E81AC'
+blue = '#81A1C1'
+teal = '#88C0D0'
+red = '#BF616A'
+orange = '#D08770'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+purple = '#B48EAD'
+gray = '#434C5E'
+black = '#2E3440'
+white='#D8DEE9'
