@@ -21,7 +21,7 @@ $docker_context\
 $line_break\
 $character"""
 
-palette = "nord"
+palette = "everforest"
 
 # Configure the right side of the prompt
 right_format = """$kubernetes"""
@@ -37,19 +37,23 @@ disabled = false
 
 [hostname]
 ssh_only = true
+style = 'fg:blue'
+format = '[@$hostname]($style) '
 
 # Prompt character
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = '[](bold green)'
+error_symbol = '[](bold red)'
 
 # Directory
 [directory]
+style = "fg:orange"
+read_only_style = "fg:red"
 read_only = " 󰌾"
 truncation_length = 3
 truncation_symbol = '../'
 truncate_to_repo = true
-style = "bold fg:dark_blue"
+format = "[ $path]($style)[$read_only]($read_only_style) "
 
 # Git
 [git_branch]
@@ -73,7 +77,7 @@ format = '[$symbol $context\]($stle)'
 
 
 [kubernetes]
-style = 'teal'
+style = 'bg_blue'
 symbol = "󱃾"
 format = '[$symbol $context\($namespace\)]($style)'
 disabled = false
@@ -94,15 +98,32 @@ symbol = " "
 [os.symbols]
 CachyOS = " "
 
-[palettes.nord]
-dark_blue = '#5E81AC'
-blue = '#81A1C1'
-teal = '#88C0D0'
-red = '#BF616A'
-orange = '#D08770'
-green = '#A3BE8C'
-yellow = '#EBCB8B'
-purple = '#B48EAD'
-gray = '#434C5E'
-black = '#2E3440'
-white='#D8DEE9'
+[palettes.everforest]
+bg_dim = "#232a2e"
+bg0 = "#2d353b"
+bg1 = "#343f44"
+bg2 = "#3d484d"
+bg3 = "#475258"
+bg4 = "#4f585e"
+bg5 = "#56635f"
+bg_visual = "#543a48"
+bg_red = "#514045"
+bg_green = "#425047"
+bg_blue = "#3a515d"
+bg_yellow = "#4d4c43"
+
+fg = "#d3c6aa"
+red = "#e67e80"
+
+orange = "#e69875"
+yellow = "#dbbc7f"
+green = "#a7c080"
+aqua = "#83c092"
+blue = "#7fbbb3"
+purple = "#d699b6"
+grey0 = "#7a8478"
+grey1 = "#859289"
+grey2 = "#9da9a0"
+statusline1 = "#a7c080"
+statusline2 = "#d3c6aa"
+statusline3 = "#e67e80"
