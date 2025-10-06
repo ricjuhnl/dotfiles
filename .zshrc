@@ -119,3 +119,5 @@ eval "$(zoxide init --cmd cd zsh)"
 source "$HOME/.config/zshrc/00-init"
 source "$HOME/.vpn_nm"
 source "$HOME/.vpn_openconnect"
+
+fastfetch
