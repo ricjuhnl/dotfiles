@@ -5,18 +5,12 @@ egrep() {
 }
 
 #keychain
-eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers)
+export SSH_AUTH_SOCK=/home/rjuhasz/.bitwarden-ssh-agent.sock
+# eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
 
-# Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
@@ -43,6 +37,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load starship
+export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 #load oh-my-posh
@@ -76,6 +71,7 @@ HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+setopt CORRECT
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -104,7 +100,6 @@ function yy() {
 # Aliases
 alias ls='ls --color'
 alias ll='ls -la'
-alias cat='bat'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
 alias sshconfig="micro ~/.ssh/config"
@@ -113,9 +108,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
-alias cls='clear'
 alias ff='fastfetch'
-alias s="kitten ssh"
 alias rm="trash-put"
 
 # Shell integrations
@@ -126,3 +119,5 @@ eval "$(zoxide init --cmd cd zsh)"
 source "$HOME/.config/zshrc/00-init"
 source "$HOME/.vpn_nm"
 source "$HOME/.vpn_openconnect"
+
+fastfetch

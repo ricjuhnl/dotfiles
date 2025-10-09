@@ -6,6 +6,7 @@
 # Exports
 # -----------------------------------------------------
 export EDITOR=micro
+export PATH=$PATH:/home/rjuhasz/.spicetify
 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH="/usr/bin/zsh"
 export "MICRO_TRUECOLOR=1"

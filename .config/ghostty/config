@@ -1,7 +1,9 @@
 # This is the configuration file for Ghostty.
-#
-AdwStyleManager:color-scheme
+
 font-family = CaskaydiaCove Nerd Font
-font-size = 13
-window-padding-x = 2
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+font-size = 14
+theme = Everforest Dark   Hard
+
+window-save-state = always
+mouse-hide-while-typing = true
+cursor-style = bar
