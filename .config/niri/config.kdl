@@ -69,6 +69,18 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+cursor {
+    xcursor-theme "Nordzy-cursors-white"
+    xcursor-size 24
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+xwayland-satellite {
+    // off
+    path "xwayland-satellite"
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -123,7 +135,7 @@ output "Philips Consumer Electronics Company PHL 49B2U6900 AU02427001147" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 10
+    gaps 5
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -279,10 +291,26 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+// Required for clipboard history integration
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+
+// Recommended (must install polkit-mate before hand) for elevation prompts
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+// This may be a different path on different distributions, the above is for the arch linux mate-polkit package
+
+// Starts DankShell
+spawn-at-startup "dms" "run"
+
+// For colors - run manually: echo 'include "dms/colors.kdl"' >> ~/.config/niri/config.kdl
+// For gaps, border widths, certain window rules - run manually: echo 'include "dms/layout.kdl"' >> ~/.config/niri/config.kdl
+
+// If using niri newer than 271534e115e5915231c99df287bbfe396185924d (~aug 17 2025)
+// you can add this to disable built in config load errors since dank shell provides this
+config-notification {
+    disable-failed
+}
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -367,8 +395,62 @@ window-rule {
     //geometry-corner-radius 12
     //clip-to-geometry true
 }
-
+// Dank keybinds
+// 1. These should not be in conflict with any pre-existing keybindings
+// 2. You need to merge them with your existing config if you want to use these
+// 3. You can change the keys to whatever you want, if you prefer something different
+// 4. For the increment/decrement ones you can change the steps to whatever you like too
 binds {
+   Mod+Space hotkey-overlay-title="Application Launcher" {
+      spawn "dms" "ipc" "call" "spotlight" "toggle";
+   }
+   Mod+Alt+V hotkey-overlay-title="Clipboard Manager" {
+      spawn "dms" "ipc" "call" "clipboard" "toggle";
+   }
+   Mod+M hotkey-overlay-title="Task Manager" {
+      spawn "dms" "ipc" "call" "processlist" "toggle";
+   }
+   Mod+N hotkey-overlay-title="Notification Center" {
+      spawn "dms" "ipc" "call" "notifications" "toggle";
+   }
+   Mod+Comma hotkey-overlay-title="Settings" {
+      spawn "dms" "ipc" "call" "settings" "toggle";
+   }
+   Mod+P hotkey-overlay-title="Notepad" {
+      spawn "dms" "ipc" "call" "notepad" "toggle";
+   }
+   Super+Alt+L hotkey-overlay-title="Lock Screen" {
+      spawn "dms" "ipc" "call" "lock" "lock";
+   }
+   Mod+X hotkey-overlay-title="Power Menu" {
+      spawn "dms" "ipc" "call" "powermenu" "toggle";
+   }
+   Mod+Alt+C hotkey-overlay-title="Control Center" {
+      spawn "dms" "ipc" "call" "control-center" "toggle";
+   }
+   XF86AudioRaiseVolume allow-when-locked=true {
+      spawn "dms" "ipc" "call" "audio" "increment" "3";
+   }
+   XF86AudioLowerVolume allow-when-locked=true {
+      spawn "dms" "ipc" "call" "audio" "decrement" "3";
+   }
+   XF86AudioMute allow-when-locked=true {
+      spawn "dms" "ipc" "call" "audio" "mute";
+   }
+   XF86AudioMicMute allow-when-locked=true {
+      spawn "dms" "ipc" "call" "audio" "micmute";
+   }
+   XF86MonBrightnessUp allow-when-locked=true {
+      spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+   }
+   // You can override the default device for e.g. keyboards by adding the device name to the last param
+   XF86MonBrightnessDown allow-when-locked=true {
+      spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+   }
+   // Night mode toggle
+   Mod+Shift+N allow-when-locked=true {
+      spawn "dms" "ipc" "call" "night" "toggle";
+   }
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
     // like wev.
@@ -394,20 +476,6 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    // Example brightness key mappings for brightnessctl.
-    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
-    // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -547,7 +615,7 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    // Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
