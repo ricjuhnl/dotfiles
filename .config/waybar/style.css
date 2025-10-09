@@ -1,7 +1,7 @@
-@import "mocha.css";
+@import "colors.css";
 
 * {
-    font-family: "Meslo Nerd Font";
+    font-family: "CaskaydiaCove Nerd Font Propo";
     font-size: 14px;
     min-height: 0;
     font-weight: bold;
