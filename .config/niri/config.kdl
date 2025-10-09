@@ -44,7 +44,7 @@ input {
 
     mouse {
         // off
-        // natural-scroll
+        natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "no-scroll"
@@ -104,6 +104,12 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=0 y=0
+}
+output "LG Electronics LG ULTRAGEAR 109MADH1S922" {
+    mode "2560x1440@60"
+    scale 1
+    transform "normal"
+    position x=2560 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
