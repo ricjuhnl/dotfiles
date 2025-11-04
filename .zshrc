@@ -5,7 +5,7 @@ egrep() {
 }
 
 #keychain
-export SSH_AUTH_SOCK=/home/rjuhasz/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 # eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -39,9 +39,6 @@ zinit cdreplay -q
 #load starship
 export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 eval "$(starship init zsh)"
-
-#load oh-my-posh
-# eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/gruvbox.json)"
 
 # Keybindings
 bindkey '\e[H'  beginning-of-line

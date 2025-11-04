@@ -1,7 +1,7 @@
 {
   "position": "top",
   "height": 30,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["niri/workspaces", "niri/window"],
   "modules-center": ["clock", "custom/spotify"],
   "modules-right": [
     "custom/vpn",
