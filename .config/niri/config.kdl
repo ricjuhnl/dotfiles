@@ -131,7 +131,12 @@ window-rule {
     default-column-width {}
     open-floating true
 }
-
+window-rule {
+    match app-id=r#"pavucontrol$"#
+    default-column-width { proportion 0.25; }
+    default-window-height { fixed 800; }
+    open-floating true
+}
 binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -142,7 +147,8 @@ binds {
     Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     Mod+B hotkey-overlay-title="Open a browser: Zen" { spawn "zen-browser"; }
     Mod+Shift+B hotkey-overlay-title="Reload waybar" { spawn "sh" "-c" "killall -SIGUSR2 waybar"; }
-    Mod+F allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill yazi || exec yy"; }
+    Mod+F allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill yazi || exec yazi"; }
+    Mod+Shift+Escape allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill wlogout || exec wlogout -b 4"; }
 
     // Volume keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
