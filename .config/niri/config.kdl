@@ -1,19 +1,9 @@
 input {
     keyboard {
+        repeat-rate 35
+        repeat-delay 200
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
-            // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
-
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
     touchpad {
@@ -56,8 +46,14 @@ output "eDP-1" {
     transform "normal"
     position x=0 y=0
 }
+output "PNP(AOC) U27B3M 17ZQ9HA009404" {
+    mode "2560x1440@60.000"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
 output "LG Electronics LG ULTRAGEAR 109MADH1S922" {
-    mode "2560x1440@59.9"
+    mode "2560x1440@59.951"
     scale 1
     transform "normal"
     position x=2560 y=0
@@ -108,6 +104,7 @@ layout {
 // Spawn settings
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
+spawn-at-startup "dunst"
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
 
 hotkey-overlay {
@@ -116,9 +113,17 @@ hotkey-overlay {
 prefer-no-csd
 screenshot-path null
 
-// Window rules 
+// Window rules
 window-rule {
     match app-id=r#"zen-browser$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"zen-browser$"# title="^Extension$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"zen-browser$"# title="^Settings$"
     open-floating true
 }
 window-rule {
@@ -147,7 +152,7 @@ binds {
     Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     Mod+B hotkey-overlay-title="Open a browser: Zen" { spawn "zen-browser"; }
     Mod+Shift+B hotkey-overlay-title="Reload waybar" { spawn "sh" "-c" "killall -SIGUSR2 waybar"; }
-    Mod+F allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill yazi || exec yazi"; }
+    Mod+E allow-when-locked=true hotkey-overlay-title="Yazi File Manager" { spawn-sh "kitty -e yazi"; }
     Mod+Shift+Escape allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill wlogout || exec wlogout -b 4"; }
 
     // Volume keys
@@ -252,6 +257,7 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+C { center-column; }
+    Mod+F { maximize-column; }
     Mod+Ctrl+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
