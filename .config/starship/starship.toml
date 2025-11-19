@@ -17,14 +17,12 @@ $python\
 $nodejs\
 $rust\
 $golang\
+$kubernetes\
 $docker_context\
 $line_break\
 $character"""
 
 palette = "everforest"
-
-# Configure the right side of the prompt
-right_format = """$kubernetes"""
 
 [fill]
 symbol = ' '
@@ -74,7 +72,6 @@ symbol = '🐳 '
 only_with_files = true
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 format = '[$symbol $context\]($stle)'
-
 
 [kubernetes]
 style = 'bg_blue'

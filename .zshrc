@@ -6,6 +6,7 @@ egrep() {
 
 #keychain
 export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
+#export SSH_AUTH_SOCK=~/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
 # eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -65,7 +66,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 
 # History
 HISTSIZE=10000
-HISTFILE=~/.zsh_history
+HISTFILE=~/repos/Datahub/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt CORRECT
@@ -107,6 +108,7 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ff='fastfetch'
 alias rm="trash-put"
+alias code='flatpak run com.visualstudio.code'
 
 # Shell integrations
 eval "$(fzf --zsh)"
