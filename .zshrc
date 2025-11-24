@@ -108,7 +108,6 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ff='fastfetch'
 alias rm="trash-put"
-alias code='flatpak run com.visualstudio.code'
 
 # Shell integrations
 eval "$(fzf --zsh)"
