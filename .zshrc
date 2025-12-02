@@ -107,7 +107,11 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ff='fastfetch'
-alias rm="trash-put"
+alias rm='trash-put'
+alias kp='kubectl get pods -o wide'
+alias ks='kubectl get services -o wide'
+alias kn='kubectl get nodes -o wide'
+alias kd='kubectl describe'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -115,7 +119,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-source "$HOME/.vpn_nm"
 source "$HOME/.vpn_openconnect"
-
-fastfetch
