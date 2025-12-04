@@ -1,26 +1,38 @@
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
+/* Background colors */
+@define-color bg_dim #293136;
+@define-color bg0 #333C43;
+@define-color bg1 #3A464C;
+@define-color bg2 #434F55;
+@define-color bg3 #4D5960;
+@define-color bg4 #555F66;
+@define-color bg5 #5D6B66;
+
+/* Named colors */
+@define-color bg_red #59464C;
+@define-color bg_yellow #55544A;
+@define-color bg_green #48584E;
+@define-color bg_blue #3F5865;
+@define-color bg_purple #4E4953;
+@define-color bg_visual #5C3F4F;
+
+/* Foreground */
+@define-color fg #D3C6AA;
+
+/* Accent colors */
+@define-color red #E67E80;
+@define-color yellow #DBBC7F;
+@define-color green #A7C080;
+@define-color blue #7FBBB3;
+@define-color purple #D699B6;
+@define-color aqua #83C092;
+@define-color orange #E69875;
+
+/* Greys */
+@define-color grey0 #7A8478;
+@define-color grey1 #859289;
+@define-color grey2 #9DA9A0;
+
+/* Status line colors */
+@define-color statusline1 #A7C080;
+@define-color statusline2 #D3C6AA;
+@define-color statusline3 #E67E80;

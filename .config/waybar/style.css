@@ -11,18 +11,18 @@ window#waybar {
     background: transparent;
 }
 .modules-left {
-    background-color: @bg0;
+    background-color: @bg_dim;
     margin-left: 0px;
     padding: 0px 10px 0px 10px;
     border-radius: 0px 20px 20px 0px;
 }
 .modules-center {
-    background-color: @bg0;
+    background-color: @bg_dim;
     margin-left: 0px;
     border-radius: 20px 20px 20px 20px;
 }
 .modules-right {
-    background-color: @bg0;
+    background-color: @bg_dim;
     margin-left: 0px;
     padding: 0px 10px 0px 10px;
     border-radius: 20px 0px 0px 20px;
@@ -32,7 +32,7 @@ window#waybar {
     margin: 5px;
     padding-left: 0px;
     padding-right: 0px;
-    color: @blue;
+    color: @fg;
 }
 
 button {
