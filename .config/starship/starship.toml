@@ -13,10 +13,6 @@ $directory\
 $git_branch\
 $git_status\
 $fill\
-$python\
-$nodejs\
-$rust\
-$golang\
 $kubernetes\
 $docker_context\
 $line_break\
@@ -79,11 +75,8 @@ symbol = "󱃾"
 format = '[$symbol $context\($namespace\)]($style)'
 disabled = false
 contexts = [
-  { context_pattern = "dev.local.cluster.k8s", style = "dimmed red", symbol = "💔 " },
+  { context_pattern = "dev.local.cluster.k8s", symbol = "💔 " },
 ]
-
-[memory_usage]
-symbol = "󰍛 "
 
 # Version Control
 [fossil_branch]
@@ -93,6 +86,7 @@ symbol = " "
 symbol = " "
 
 [os.symbols]
+Arch = " "
 CachyOS = " "
 
 [palettes.everforest]
