@@ -271,3 +271,7 @@ dirs = [
   { name = "test", text = "", fg_dark = "#dbbc7f", fg_light = "#dbbc7f" },
   { name = "tests", text = "", fg_dark = "#dbbc7f", fg_light = "#dbbc7f" },
 ]
+
+[flavor]
+dark  = "noctalia"
+light = "noctalia"
