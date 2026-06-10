@@ -144,3 +144,10 @@ eval "$(zoxide init --cmd cd zsh)"
 #source externals
 source "$HOME/.config/zshrc/00-init"
 source "$HOME/.vpn_openconnect"
+
+# bun completions
+[ -s "/home/rjuhasz/.bun/_bun" ] && source "/home/rjuhasz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
