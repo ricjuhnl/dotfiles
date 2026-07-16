@@ -151,3 +151,6 @@ source "$HOME/.vpn_openconnect"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/rjuhasz/.opencode/bin:$PATH

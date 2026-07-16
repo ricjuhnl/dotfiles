@@ -1,38 +1,38 @@
 /* Background colors */
-@define-color bg_dim #293136;
-@define-color bg0 #333C43;
-@define-color bg1 #3A464C;
-@define-color bg2 #434F55;
-@define-color bg3 #4D5960;
-@define-color bg4 #555F66;
-@define-color bg5 #5D6B66;
+@define-color bg_dim #282a36;
+@define-color bg0 #323643;
+@define-color bg1 #3a3f4f;
+@define-color bg2 #454a5a;
+@define-color bg3 #54596e;
+@define-color bg4 #626880;
+@define-color bg5 #717c93;
 
 /* Named colors */
-@define-color bg_red #59464C;
-@define-color bg_yellow #55544A;
-@define-color bg_green #48584E;
-@define-color bg_blue #3F5865;
-@define-color bg_purple #4E4953;
-@define-color bg_visual #5C3F4F;
+@define-color bg_red #5a3a3f;
+@define-color bg_yellow #5f5745;
+@define-color bg_green #3e5a43;
+@define-color bg_blue #3a3f5a;
+@define-color bg_purple #4a3f5c;
+@define-color bg_visual #5a3f4f;
 
 /* Foreground */
-@define-color fg #D3C6AA;
+@define-color fg #f8f8f2;
 
 /* Accent colors */
-@define-color red #E67E80;
-@define-color yellow #DBBC7F;
-@define-color green #A7C080;
-@define-color blue #7FBBB3;
-@define-color purple #D699B6;
-@define-color aqua #83C092;
-@define-color orange #E69875;
+@define-color red #ff5555;
+@define-color yellow #f1fa8c;
+@define-color green #50fa7b;
+@define-color blue #8be9fd;
+@define-color purple #bd93f9;
+@define-color aqua #8be9fd;
+@define-color orange #ffb86c;
 
 /* Greys */
-@define-color grey0 #7A8478;
-@define-color grey1 #859289;
-@define-color grey2 #9DA9A0;
+@define-color grey0 #6272a4;
+@define-color grey1 #717c93;
+@define-color grey2 #9ca0b0;
 
 /* Status line colors */
-@define-color statusline1 #A7C080;
-@define-color statusline2 #D3C6AA;
-@define-color statusline3 #E67E80;
+@define-color statusline1 #50fa7b;
+@define-color statusline2 #f8f8f2;
+@define-color statusline3 #ff5555;
