@@ -5,7 +5,7 @@ egrep() {
 }
 
 #keychain
-export SSH_AUTH_SOCK=/home/rjuhasz/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=/home/rjuhasz/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
 # eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -112,12 +112,13 @@ alias ff='fastfetch'
 alias rm="trash-put"
 
 # Shell integrations
-eval "$(fzf --zsh)"
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-source "$HOME/.vpn_nm"
 source "$HOME/.vpn_openconnect"
 
-fastfetch
+# opencode
+export PATH=/home/rjuhasz/.opencode/bin:$PATH
