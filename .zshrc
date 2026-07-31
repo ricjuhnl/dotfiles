@@ -8,30 +8,6 @@ egrep() {
 # -------------------------------------------------------------------
 export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 # Backup original ssh
-alias _ssh=/usr/bin/ssh
-
-ssh() {
-  local host="$1"
-  shift
-
-  # Resolve actual hostname from SSH config
-  local realhost
-  realhost=$(_ssh -G "$host" 2>/dev/null | awk '/^hostname / {print $2}')
-
-  # Fallback to literal if resolution fails
-  [[ -z "$realhost" ]] && realhost="$host"
-
-  # Check if VPN is needed
-  if [[ "$realhost" == *.unimaas.nl ]]; then
-    if ! pgrep -f "openconnect.*vpn\.maastrichtuniversity\.nl" >/dev/null; then
-      echo "⚠️ VPN is not active! SSH to $host ($realhost) requires the VPN."
-      return 1
-    fi
-  fi
-
-  # Call the original ssh
-  _ssh "$host" "$@"
-}
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"

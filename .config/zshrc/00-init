@@ -6,7 +6,7 @@
 # Exports
 # -----------------------------------------------------
 export EDITOR=micro
-export PATH=$PATH:/home/rjuhasz/.spicetify
+export PATH="/home/rjuhasz/.local/bin:$PATH"
 export PATH=~/.npm-global/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH="/usr/bin/zsh"
