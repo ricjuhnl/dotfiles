@@ -1,0 +1,112 @@
+include "monitors.kdl"
+include "env.kdl"
+include "binds.kdl"
+
+input {
+    keyboard {
+        repeat-rate 35
+        repeat-delay 200
+        xkb {
+        }
+        numlock
+    }
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // middle-emulation
+    }
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Layout
+layout {
+    gaps 5
+    center-focused-column "on-overflow"
+
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+    default-column-width {}
+    focus-ring {
+        width 2
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+// Window rules
+window-rule {
+    match app-id=r#"zen-browser$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"zen-browser$"# title="^Extension$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"zen-browser$"# title="^Settings$"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"blueman-manager$"#
+    default-column-width {}
+    open-floating true
+}
+window-rule {
+    match app-id=r#"nm-connection-editor$"#
+    default-column-width {}
+    open-floating true
+}
+window-rule {
+    match app-id=r#"pavucontrol$"#
+    default-column-width { proportion 0.25; }
+    default-window-height { fixed 800; }
+    open-floating true
+}

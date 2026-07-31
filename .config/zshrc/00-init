@@ -6,13 +6,16 @@
 # Exports
 # -----------------------------------------------------
 export EDITOR=micro
-export PATH=$PATH:/home/rjuhasz/.spicetify
+export PATH="/home/rjuhasz/.local/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH="/usr/bin/zsh"
 export "MICRO_TRUECOLOR=1"
 export BUN_INSTALL="$HOME/.bun"
+export VAULT_ADDR="https://vault.prod.dh.unimaas.nl"
 path+=('$HOME/.local/bin')
 path+=('$BUN_INSTALL/bin')
 path+=('/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin')
-
+export PATH=$PATH:$HOME/.kubescape/bin
 export PATH
+export TZ="Europe/Amsterdam"

@@ -1,0 +1,108 @@
+{
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "project_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "dock": "left",
+    "default_model": {
+      "provider": "Willma",
+      "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "enable_thinking": false,
+    },
+    "tool_permissions": {
+      "tools": {
+        "create_directory": {
+          "default": "allow",
+        },
+      },
+    },
+    "favorite_models": [],
+    "default_profile": "write",
+    "model_parameters": [],
+  },
+  "language_models": {
+    "openai_compatible": {
+      "Willma": {
+        "api_url": "https://willma.surf.nl/api/v0",
+        "available_models": [
+          {
+            "name": "Sehyo/Qwen3.5-122B-A10B-NVFP4",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "Qwen/Qwen3.6-35B-A3B-FP8",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+          {
+            "name": "RedHatAI/gemma-4-31B-it-NVFP4",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "ui_font_family": ".SystemUIFont",
+  "terminal": {
+    "font_family": "CaskaydiaCove Nerd Font",
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
+  "buffer_font_size": 14.0,
+  "ui_font_size": 16,
+  "auto_indent": "syntax_aware",
+  "auto_indent_on_paste": false,
+  "icon_theme": "Material Icon Theme",
+  "base_keymap": "VSCode",
+  "theme": {
+    "mode": "system",
+    "light": "DankShell Light",
+    "dark": "DankShell Dark",
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "cursor_blink": true,
+  "scroll_beyond_last_line": "one_page",
+  "show_completions_on_input": true,
+  "show_whitespaces": "selection",
+}

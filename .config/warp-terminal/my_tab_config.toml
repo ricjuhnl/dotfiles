@@ -1,0 +1,27 @@
+# Warp Tab Config
+# Stored in ~/.warp/tab_configs/ — rename this file and edit anytime!
+#
+# Tip: Ask Oz to update this tab config for you using /skills -> /update-tab-config!
+#   e.g. "/update-tab-config turn this into a 2x2 tab config with one pane running my dev server"
+#
+# Docs at https://docs.warp.dev/terminal/windows/tab-configs
+
+name = "Ansible workflow"
+
+[[panes]]
+id = "root"
+split = "horizontal"
+children = ["ssh_pane", "dh_ansible"]
+
+[[panes]]
+id = "ssh_pane"
+type = "terminal"
+directory = "/home/rjuhasz"
+commands = ["ssh dev-devops"]
+is_focused = true
+
+[[panes]]
+id = "dh_ansible"
+type = "terminal"
+directory = "/home/rjuhasz/repos/dh-ansible/"
+commands = ["git pull"]

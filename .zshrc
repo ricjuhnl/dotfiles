@@ -3,10 +3,11 @@ egrep() {
   echo "egrep called from: ${functrace[1]}"
   command grep -E "$@"
 }
-
-#keychain
-export SSH_AUTH_SOCK=/home/rjuhasz/.bitwarden-ssh-agent.sock
-# eval $(keychain --eval ~/.ssh/id_rsa_bastion ~/.ssh/id_rsa_servers ~/.ssh/id_rsa_homelab)
+# -------------------------------------------------------------------
+# SSH
+# -------------------------------------------------------------------
+export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
+# Backup original ssh
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -40,9 +41,6 @@ zinit cdreplay -q
 export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
-#load oh-my-posh
-# eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/gruvbox.json)"
-
 # Keybindings
 bindkey '\e[H'  beginning-of-line
 bindkey '\eOH'  beginning-of-line
@@ -68,7 +66,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 
 # History
 HISTSIZE=10000
-HISTFILE=~/.zsh_history
+HISTFILE=~/repos/Datahub/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt CORRECT
@@ -109,7 +107,11 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ff='fastfetch'
-alias rm="trash-put"
+alias rm='trash-put'
+alias kp='kubectl get pods -o wide'
+alias ks='kubectl get services -o wide'
+alias kn='kubectl get nodes -o wide'
+alias kd='kubectl describe'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -117,7 +119,14 @@ eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-source "$HOME/.vpn_nm"
 source "$HOME/.vpn_openconnect"
 
-fastfetch
+# bun completions
+[ -s "/home/rjuhasz/.bun/_bun" ] && source "/home/rjuhasz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/rjuhasz/.opencode/bin:$PATH

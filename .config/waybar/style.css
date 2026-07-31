@@ -1,7 +1,7 @@
-@import "mocha.css";
+@import "colors.css";
 
 * {
-    font-family: "Meslo Nerd Font";
+    font-family: "MesloLGL Nerd Font Propo";
     font-size: 14px;
     min-height: 0;
     font-weight: bold;
@@ -9,16 +9,30 @@
 
 window#waybar {
     background: transparent;
-    color: @overlay0;
-    transition-property: background-color;
-    transition-duration: 0.1s;
+}
+.modules-left {
+    background-color: @bg_dim;
+    margin-left: 0px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 0px 20px 20px 0px;
+}
+.modules-center {
+    background-color: @bg_dim;
+    margin-left: 0px;
+    border-radius: 20px 20px 20px 20px;
+}
+.modules-right {
+    background-color: @bg_dim;
+    margin-left: 0px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 #window {
     margin: 5px;
     padding-left: 0px;
     padding-right: 0px;
-    color: @teal;
+    color: @fg;
 }
 
 button {
@@ -29,7 +43,7 @@ button {
 
 button:hover {
     background: inherit;
-    color: @pink;
+    color: @purple;
 }
 
 #workspaces button {
@@ -37,15 +51,15 @@ button:hover {
 }
 
 #workspaces button.focused {
-    color: @teal;
+    color: @blue;
 }
 
 #workspaces button.active {
-    color: @pink;
+    color: @red;
 }
 
 #workspaces button.urgent {
-    background-color: @maroon;
+    background-color: @red;
 }
 
 #tray {
@@ -61,13 +75,18 @@ button:hover {
 #wireplumber,
 #mode,
 #scratchpad,
+#bluetooth {
+    color: @fg;
+    margin: 5px;
+}
+
 #clock {
-    color: @flamingo;
+    color: @yellow;
     margin: 10px;
 }
 
 #clock.date {
-    color: @mauve;
+    color: @yellow;
 }
 
 #pulseaudio {
@@ -76,28 +95,17 @@ button:hover {
 }
 
 #network {
-    color: @yellow;
+    color: @fg;
     margin: 5px;
 }
 
 #battery {
-    color: @green;
+    color: @fg;
     margin: 5px;
 }
 
-#custom-links {
-    font-size: 2em;
-    color: @green;
-    margin: 5px;
-}
-
-#custom-notification {
-    font-family: "Meslo Nerd Font";
-    color: @blue;
-    margin: 10px;
-}
 #custom-pacman {
-    color: @pink;
+    color: @fg;
     margin: 5px;
 }
 
