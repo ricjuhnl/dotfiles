@@ -119,7 +119,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
-source "$HOME/.config/zshrc/web-apps"
 source "$HOME/.vpn_openconnect"
 
 # bun completions
