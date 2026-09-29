@@ -5,9 +5,6 @@
 # Directory for user web-app desktop entries
 WEBAPP_DIR="$HOME/.local/share/applications/webapps"
 
-# Browser to use for web apps (must support --app flag, i.e. Chromium-based)
-WEBAPP_BROWSER="brave-browser --ozone-platform=x11"
-
 # Install a web app
 # Usage: webapp-install <name> <url> [icon_url]
 function webapp-install() {
@@ -68,7 +65,7 @@ Name=$name
 Type=Application
 URL=$url
 ${icon_arg}
-Exec=$WEBAPP_BROWSER --app="$url" %u
+Exec=zen-browser --app="$url" %u
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml+xhtml
 StartupNotify=true
 Terminal=false
