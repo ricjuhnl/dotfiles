@@ -1,7 +1,8 @@
 include "monitors.kdl"
 include "env.kdl"
 include "binds.kdl"
-
+include "rules.kdl"
+include "noctalia/binds.kdl"
 input {
     keyboard {
         repeat-rate 35
@@ -81,32 +82,5 @@ layout {
     }
 }
 
-// Window rules
-window-rule {
-    match app-id=r#"zen-browser$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-window-rule {
-    match app-id=r#"zen-browser$"# title="^Extension$"
-    open-floating true
-}
-window-rule {
-    match app-id=r#"zen-browser$"# title="^Settings$"
-    open-floating true
-}
-window-rule {
-    match app-id=r#"blueman-manager$"#
-    default-column-width {}
-    open-floating true
-}
-window-rule {
-    match app-id=r#"nm-connection-editor$"#
-    default-column-width {}
-    open-floating true
-}
-window-rule {
-    match app-id=r#"pavucontrol$"#
-    default-column-width { proportion 0.25; }
-    default-window-height { fixed 800; }
-    open-floating true
-}
+
+include "noctalia.kdl"
