@@ -7,10 +7,10 @@ binds {
     Mod+B hotkey-overlay-title="Open a browser: Zen" { spawn "zen-browser"; }
     Mod+E allow-when-locked=true hotkey-overlay-title="Yazi File Manager" { spawn-sh "kitty -e yazi"; }
 
-    // Web apps (frameless PWA-style windows via Brave)
-    Mod+Shift+Y hotkey-overlay-title="YouTube" { spawn-sh "brave --ozone-platform=x11 --app=https://www.youtube.com"; }
-    Mod+Shift+G hotkey-overlay-title="Gmail" { spawn-sh "brave --ozone-platform=x11 --app=https://gmail.com"; }
-    Mod+Shift+M hotkey-overlay-title="Google Messages" { spawn-sh "brave --ozone-platform=x11 --app=https://messages.google.com/web"; }
+    // Web apps (launch via .desktop files in ~/.local/share/applications/)
+    Mod+Shift+Y hotkey-overlay-title="YouTube" { spawn "gtk-launch" "youtube"; }
+    Mod+Shift+G hotkey-overlay-title="Gmail" { spawn "gtk-launch" "gmail"; }
+    Mod+Shift+M hotkey-overlay-title="Google Messages" { spawn "gtk-launch" "messages"; }
 
     // Volume keys
     // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
