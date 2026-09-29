@@ -1,0 +1,208 @@
+## Configuration file for CAVA.
+# Remove the ; to change parameters.
+
+
+[general]
+
+# Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
+; mode = normal
+
+# Accepts only non-negative values.
+; framerate = 60
+
+# 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
+# new as of 0.6.0 autosens of low values (dynamic range)
+# 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
+; autosens = 1
+; overshoot = 20
+
+# Manual sensitivity in %. Autosens must be turned off for this to take effect.
+# 200 means double height. Accepts only non-negative values.
+; sensitivity = 100
+
+# The number of bars (0-200). 0 sets it to auto (fill up console).
+# Bars' width and space between bars in number of characters.
+; bars = 0
+; bar_width = 2
+; bar_spacing = 1
+# bar_height is only used if autosens is off and only applies to ncurses output
+; bar_height = 32
+
+# For SDL width and height specify the screen in pixels, for ncurses specify in terminal characters or -1 to use terminal size.
+; xres = 1200
+; yres = 700
+
+# Disable the lower cutoff frequency to improve the experience of songs with a lot of bass
+; lower_cutoff_freq = 50
+
+# Higher cutoff frequency to improve the experience of songs with a lot of high frequency sounds
+; higher_cutoff_freq = 10000
+
+# Seconds with no input before cava goes to sleep mode. Cava will not perform FFT or drawing and thus use less CPU.
+# Cava will wake up once input is detected. 0 = disable.
+; sleep_timer = 0
+
+
+[input]
+
+# Audio capturing method. Possible methods are: 'pulse', 'alsa', 'fifo', 'sndio' or 'oss'.
+# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
+# Ignored if '-p' command line argument is specified.
+; method = pulse
+
+# Source for the audio. Auto if not specified.
+# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
+# (all pulseaudio sinks have a monitor source).
+; source = auto
+
+# Delay fifo's by the specified number of seconds. 0 = no delay.
+; delay = 0
+
+# Only 'auto' is currently supported by the alsa input method.
+; device = auto
+
+[output]
+
+# Output method. Can be 'ncurses', 'noncurses', 'raw', 'noritake', 'sdl' or 'sdl_glsl'.
+# 'noncurses' uses a custom framebuffer technique and prints only changes
+# from frame to frame in the terminal. 'ncurses' is default if supported.
+#
+# 'raw' is an 8 or 16 bit (configurable via the 'bit_format' option) data
+# stream of the bar heights that can be used to send to other applications.
+# 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
+#
+# 'noritake' outputs a bitmap in the format expected by a Noritake VFD display
+#  in graphic mode. It only support the 3000 series graphical VFDs for now.
+#
+# 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
+# 'sdl_glsl' uses SDL to create an OpenGL context. Write your own shaders or
+# use one of the predefined ones.
+; method = ncurses
+
+# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
+# Default is 'bottom'. Other orientations are only supported on sdl and noncurses
+# output. Note: many fonts have weird glyphs for 'top' and 'bottom' (see smoothing)
+; orientation = bottom
+
+# Visual channels. Can be 'stereo' or 'mono'.
+# 'stereo' mirrors both channels with low frequencies in center.
+# 'mono' outputs left to right lowest to highest frequencies.
+# 'mono_option' set mono to either take input from 'left', 'right' or 'average'.
+# set 'reverse' to 1 to display frequencies the other way around.
+; channels = stereo
+; mono_option = average
+; reverse = 0
+
+# Raw output target. A fifo will be created if target does not exist.
+; raw_target = /dev/stdout
+
+# Raw data format. Can be 'binary' or 'ascii'.
+; data_format = binary
+
+# Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
+; bit_format = 16bit
+
+# Ascii max value. In 'ascii' mode range will run from 0 to value specified here
+; ascii_max_range = 1000
+
+# Ascii delimiters. In ascii format each bar and frame is separated by a delimiters.
+# Use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)).
+; bar_delimiter = 59
+; frame_delimiter = 10
+
+# sdl window size and position. -1,-1 is centered.
+; sdl_width = 1000
+; sdl_height = 500
+; sdl_x = -1
+; sdl_y= -1
+
+# set label on bars on the x-axis. Can be 'frequency' or 'none'. default: 'none'
+# 'frequency' displays the lower frequency of the bar above every bar.
+# Only supported on ncurses and noncurses output.
+; xaxis = none
+
+# enable alacritty synchronized updates. 1 = on, 0 = off
+# removes flickering in alacritty terminal emeulator.
+; alacritty_sync = 0
+
+# Shaders for sdl_glsl, located in $HOME/.config/cava/shaders or /usr/share/cava/shaders
+# default is used if shader is not specified
+; vertex_shader = pass_through.vert
+; fragment_shader = bar_spectrum.frag
+
+# for glsl output mode, keep rendering even if no audio
+; continuous_rendering = 0
+
+[color]
+
+# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
+# Or defined by hex code '#rrggbb' (only ncurses and noncurses mode).
+# background = default, it will not be changed.
+# Use: background = '#2d353b' for Everforest background
+
+background = '#2d353b'
+foreground = '#d3c6aa'
+
+# Gradient mode, only hex defined colors are supported,
+# background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
+# You can define as many as 8 different colors. They range from bottom to top of screen
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#a7c080'
+gradient_color_2 = '#83c092'
+gradient_color_3 = '#7fbbb3'
+gradient_color_4 = '#dbbc7f'
+gradient_color_5 = '#e69875'
+gradient_color_6 = '#d699b6'
+
+[smoothing]
+
+# Percentage value for integral smoothing. Takes values from 0 - 100.
+# Higher values means smoother, but less precise. 0 to disable.
+# DEPRECATED as of 0.6.0, use noise_reduction instead
+; integral = 77
+
+# Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
+; monstercat = 0
+; waves = 0
+
+# Set gravity percentage for "drop off". Higher values means bars will drop faster.
+# Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
+# DEPRECATED as of 0.6.0, use noise_reduction instead
+; gravity = 100
+
+
+# In bar height, bars that would have been lower that this will not be drawn.
+# DEPRECATED as of 0.6.0
+; ignore = 0
+
+# Noise reduction, int 0 - 100. default 77
+# the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
+# 100 will be very slow and smooth, 0 will be fast but noisy.
+; noise_reduction = 77
+
+
+[eq]
+
+# This one is tricky. You can have as much keys as you want.
+# Remember to uncomment your preferred keys.
+# Q is 31.5Hz, W is 63Hz and so on.
+# Settings for a five octave EQ, each octave is divided into 3 bands.
+# 31.5, 63 and 125 Hz
+; 1 = 1
+; 2 = 1
+; 3 = 1
+
+# 250, 500 and 1000 Hz
+; 4 = 1
+; 5 = 1
+; 6 = 1
+
+# 2000, 4000 and 8000 Hz
+; 7 = 1
+; 8 = 1
+; 9 = 1
+
+# 16000, 32000 Hz
+; 10 = 1
+; 11 = 1

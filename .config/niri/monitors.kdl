@@ -1,0 +1,24 @@
+output "eDP-1" {
+    mode "1920x1200@60"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+output "PNP(AOC) U27B3M 17ZQ9HA009404" {
+    mode "2560x1440@60.000"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+output "LG Electronics LG ULTRAGEAR 109MADH1S922" {
+    mode "2560x1440@59.951"
+    scale 1
+    transform "normal"
+    position x=2560 y=0
+}
+output "Philips Consumer Electronics Company PHL 49B2U6900 AU02427001147" {
+    mode "5120x1440@75.001"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}

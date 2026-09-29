@@ -1,16 +1,16 @@
 {
   "position": "top",
-  "height": 30,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock", "custom/spotify"],
+  "height": 40,
+  "modules-left": ["niri/workspaces", "niri/window"],
+  "modules-center": ["custom/spotify", "clock"],
   "modules-right": [
     "custom/vpn",
     "custom/pacman",
     "tray",
     "network",
+    "bluetooth",
     "pulseaudio",
     "battery",
-    "custom/notification",
   ],
   "clock": {
     "format": "{:%a %d %b - %H:%M}",
@@ -33,6 +33,7 @@
   "network": {
     "format": "{ifname}",
     "interval": 2,
+    "swap-icon-label": false,
     "format-wifi": "{essid} ({signalStrength}%)   {bandwidthDownBits}",
     "format-ethernet": "{ifname}   {bandwidthDownBits}",
     "format-linked": "{ifname} (No IP) no_entry",
@@ -50,7 +51,19 @@
     "format-icons": {
       "default": ["", "", " "],
     },
-    "on-click": "pwvucontrol",
+    "on-click": "pavucontrol",
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "swap-icon-label": false,
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager",
   },
   "custom/spotify": {
     "format": " {}",
@@ -67,11 +80,7 @@
     "interval": 3,
     "format": "{}",
     "exec": "$HOME/.config/waybar/vpn.sh",
-    "max-length": "15",
-  },
-  "custom/links": {
-    "format": "",
-    "on-click": "thorium-browser --app=https://web.whatsapp.com",
+    "max-length": 15,
   },
   "custom/pacman": {
     "format": " {}",
@@ -84,24 +93,11 @@
     "icon-size": 14,
     "spacing": 5,
   },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "",
-    },
     "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
+    "exec-if": "which swaync",
+    "exec": "swaync -swb",
+    "on-click": "swaync -t -sw",
+    "on-click-right": "swaync -d -sw",
     "escape": true,
-  },
+  }
 }

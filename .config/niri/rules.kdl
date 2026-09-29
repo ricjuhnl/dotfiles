@@ -1,0 +1,29 @@
+// Zen Browser — extension popups have dynamic titles set after creation,
+// so title-based open-floating never matches. Float all zen windows instead.
+window-rule {
+    match app-id="zen"
+    open-floating true
+}
+window-rule {
+    match app-id=r#"blueman-manager$"#
+    default-column-width {}
+    open-floating true
+}
+window-rule {
+    match app-id=r#"nm-connection-editor$"#
+    default-column-width {}
+    open-floating true
+}
+window-rule {
+    match app-id=r#"pavucontrol$"#
+    default-column-width { proportion 0.25; }
+    default-window-height { fixed 800; }
+    open-floating true
+}
+window-rule {
+    match app-id="openconnect-saml"
+    open-maximized false
+    open-floating true
+    default-column-width { proportion 0.15; }
+    default-window-height { fixed 500; }
+}
