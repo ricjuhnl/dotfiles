@@ -8,7 +8,7 @@ WEBAPP_DIR="$HOME/.local/share/applications/webapps"
 WEBAPP_LINKS="$HOME/.local/share/applications"
 
 # Browser to use for web apps (must support --app flag, i.e. Chromium-based)
-WEBAPP_BROWSER="brave-browser --ozone-platform=x11"
+WEBAPP_BROWSER="brave --ozone-platform=x11"
 
 # Install a web app
 # Usage: webapp-install <name> <url> [icon_url]
@@ -25,7 +25,7 @@ function webapp-install() {
   # Create directory if needed
   mkdir -p "$WEBAPP_DIR"
 
-  local basename="${name,,}"
+  local basename="${name:l}"
   local desktop_file="$WEBAPP_DIR/${basename}.desktop"
   local link_file="$WEBAPP_LINKS/${basename}.desktop"
   local icon_path="$WEBAPP_DIR/${basename}.png"
@@ -102,7 +102,7 @@ function webapp-remove() {
     return 1
   fi
 
-  local basename="${name,,}"
+  local basename="${name:l}"
   local desktop_file="$WEBAPP_DIR/${basename}.desktop"
   local link_file="$WEBAPP_LINKS/${basename}.desktop"
   local icon_path="$WEBAPP_DIR/${basename}.png"
