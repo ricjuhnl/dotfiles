@@ -5,7 +5,7 @@ binds {
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
     // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
     Mod+L { spawn-sh "noctalia msg session lock"; }
-    // Niri has a built-in window switcher you might want to try it to see which one you prefer.
+    Mod+F1 { spawn "noctalia" "msg" "panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }

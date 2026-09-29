@@ -35,7 +35,7 @@
   "language_models": {
     "openai_compatible": {
       "Willma": {
-        "api_url": "https://willma.surf.nl/api/v0",
+        "api_url": "https://api.willma.surf.nl/v0",
         "available_models": [
           {
             "name": "Sehyo/Qwen3.5-122B-A10B-NVFP4",
@@ -80,7 +80,7 @@
       },
     },
   },
-  "ui_font_family": ".SystemUIFont",
+  "ui_font_family": "Adwaita Sans",
   "terminal": {
     "font_family": "CaskaydiaCove Nerd Font",
   },
@@ -92,12 +92,11 @@
   "ui_font_size": 16,
   "auto_indent": "syntax_aware",
   "auto_indent_on_paste": false,
-  "icon_theme": "Material Icon Theme",
   "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
-    "light": "DankShell Light",
-    "dark": "DankShell Dark",
+    "light": "Noctalia Light",
+    "dark": "Noctalia Dark",
   },
   "autosave": "on_focus_change",
   "format_on_save": "on",
