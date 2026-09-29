@@ -2,10 +2,8 @@
 # Web Apps - Install and launch web apps as standalone windows
 # -------------------------------------------------------------------
 
-# Directory for user web-app desktop entries (icons + desktop files live here)
+# Directory for user web-app desktop entries
 WEBAPP_DIR="$HOME/.local/share/applications/webapps"
-# Symlinks go here so rofi can find them
-WEBAPP_LINKS="$HOME/.local/share/applications"
 
 # Browser to use for web apps (must support --app flag, i.e. Chromium-based)
 WEBAPP_BROWSER="brave-browser --ozone-platform=x11"
@@ -25,10 +23,8 @@ function webapp-install() {
   # Create directory if needed
   mkdir -p "$WEBAPP_DIR"
 
-  local basename="${name,,}"
-  local desktop_file="$WEBAPP_DIR/${basename}.desktop"
-  local link_file="$WEBAPP_LINKS/${basename}.desktop"
-  local icon_path="$WEBAPP_DIR/${basename}.png"
+  local desktop_file="$WEBAPP_DIR/${name,,}.desktop"
+  local icon_path="$WEBAPP_DIR/${name,,}.png"
 
   # Check if already installed
   if [[ -f "$desktop_file" ]]; then
@@ -65,11 +61,12 @@ function webapp-install() {
     icon_arg="Icon=web-browser"
   fi
 
-  # Write the desktop file (no URL key - only valid for Type=Link)
+  # Write the desktop file
   cat > "$desktop_file" <<EOF
 [Desktop Entry]
 Name=$name
 Type=Application
+URL=$url
 ${icon_arg}
 Exec=$WEBAPP_BROWSER --app="$url" %u
 MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml+xhtml
@@ -79,12 +76,8 @@ Categories=Network;WebBrowser;
 Keywords=Web;Application;
 EOF
 
-  # Make .desktop files executable
+  # Make .desktop files executable (so rofi picks them up)
   chmod +x "$desktop_file"
-
-  # Symlink into ~/.local/share/applications so rofi finds them
-  rm -f "$link_file"
-  ln -sf "$desktop_file" "$link_file"
 
   echo "Installed: $name"
   echo "  URL:     $url"
@@ -102,30 +95,27 @@ function webapp-remove() {
     return 1
   fi
 
-  local basename="${name,,}"
-  local desktop_file="$WEBAPP_DIR/${basename}.desktop"
-  local link_file="$WEBAPP_LINKS/${basename}.desktop"
-  local icon_path="$WEBAPP_DIR/${basename}.png"
+  local desktop_file="$WEBAPP_DIR/${name,,}.desktop"
+  local icon_path="$WEBAPP_DIR/${name,,}.png"
 
   if [[ ! -f "$desktop_file" ]]; then
     echo "Error: '$name' is not installed."
     return 1
   fi
 
-  rm -f "$desktop_file" "$icon_path" "$link_file"
+  rm -f "$desktop_file" "$icon_path"
   echo "Removed: $name"
 }
 
 # List installed web apps
 function webapp-list() {
   echo "Installed web apps:"
-  local f
-  for f in "${WEBAPP_DIR}"/*.desktop; do
+  for f in "$WEBAPP_DIR"/*.desktop 2>/dev/null; do
     [[ -f "$f" ]] || continue
     local name
     name=$(grep '^Name=' "$f" | head -1 | cut -d= -f2-)
     local url
-    url=$(grep 'Exec=' "$f" | head -1 | sed 's|.*--app="\([^"]*\)".*|\1|')
+    url=$(grep '^URL=' "$f" | head -1 | cut -d= -f2-)
     printf "  %-20s %s\n" "$name" "$url"
   done
 }
