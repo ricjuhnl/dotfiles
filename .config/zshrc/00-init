@@ -12,7 +12,7 @@ export ZSH="/usr/bin/zsh"
 export MICRO_TRUECOLOR=1
 export BUN_INSTALL="$HOME/.bun"
 export TZ="Europe/Amsterdam"
-
+export XDG_CURRENT_DESKTOP=niri:GNOME
 # -----------------------------------------------------
 # PATH
 # -----------------------------------------------------

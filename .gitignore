@@ -4,10 +4,14 @@
 .config/micro/buffers
 .config/btop/btop.log
 .config/spicetify/config-xpui.ini
-.config/spicetify/Themes/catppuccin
 .config/micro/buffers/history
 .config/herdr/session-snapshots/
 .config/herdr/*.sock
 .config/herdr/*.log
 .config/herdr/*.agent
+.config/herdr/*.lock
 .config/herdr/session.json
+.config/opencode/*.js
+.config/opencode/*.jsonc
+.config/opencode/herdr-opencode/*.js
+.config/opencode/plugins/*.js

@@ -15,11 +15,17 @@
     "dock": "right",
   },
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "opencode.ai"
+      ]
+    },
     "dock": "left",
     "default_model": {
-      "provider": "Willma",
-      "model": "Qwen/Qwen3.6-35B-A3B-FP8",
-      "enable_thinking": false,
+      "effort": "medium",
+      "provider": "Datahub",
+      "model": "datahub/Qwen3.8-27B-NVFP4",
+      "enable_thinking": true,
     },
     "tool_permissions": {
       "tools": {
@@ -34,6 +40,27 @@
   },
   "language_models": {
     "openai_compatible": {
+      "Datahub": {
+        "api_url": "https://chat.datahubmaastricht.nl/api/v1",
+        "available_models": [
+          {
+            "name": "datahub/Qwen3.8-27B-NVFP4",
+            "max_tokens": 262144,
+            "max_output_tokens": 131072,
+            "max_completion_tokens": 200000,
+            "reasoning_effort": "medium",
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false
+            }
+          }
+        ]
+      },
       "Willma": {
         "api_url": "https://api.willma.surf.nl/v0",
         "available_models": [
@@ -96,7 +123,7 @@
   "theme": {
     "mode": "system",
     "light": "Noctalia Light",
-    "dark": "Noctalia Dark",
+    "dark": "Ayu Dark",
   },
   "autosave": "on_focus_change",
   "format_on_save": "on",

@@ -1,6 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {
+    "datahub": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DataHub Maastricht",
+      "options": {
+        "baseURL": "https://chat.datahubmaastricht.nl/api/v1",
+        "apiKey": "sk-2e62d74abc2049d0b90516c86867fb1a"
+      },
+      "models": {
+        "datahub/Qwen3.8-27B-NVFP4": {
+          "name": "Qwen 3.8 27B",
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          }
+        }
+      }
+    },
     "Willma": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "SURF Willma",
@@ -35,12 +52,8 @@
             "context": 262144,
             "output": 8192
           }
-        },
-        "RedHatAI/gemma-4-31B-it-NVFP4": {
-          "name": "Gemma 4 31B"
         }
       }
     }
-  },
-  "plugin": ["@warp-dot-dev/opencode-warp"]
+  }
 }

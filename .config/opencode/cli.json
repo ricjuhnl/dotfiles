@@ -1,7 +1,8 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
   "theme": {
-    "name": "system"
+    "name": "ayu-dark"
   },
-  "animations": true
+  "animations": true,
+  "plugins": ["./herdr-opencode"]
 }

@@ -27,3 +27,8 @@ window-rule {
     default-column-width { proportion 0.15; }
     default-window-height { fixed 500; }
 }
+window-rule {
+    match app-id="kitty"
+    open-floating false
+    default-column-width { proportion 0.25; }
+}

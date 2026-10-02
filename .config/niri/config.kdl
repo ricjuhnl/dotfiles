@@ -51,6 +51,7 @@ input {
 layout {
     gaps 5
     center-focused-column "on-overflow"
+    background-color "transparent"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -82,5 +83,13 @@ layout {
     }
 }
 
-
+layer-rule {
+  match namespace="^noctalia-wallpaper"
+  place-within-backdrop true
+}
+overview {
+  workspace-shadow {
+    off
+  }
+}
 include "noctalia.kdl"

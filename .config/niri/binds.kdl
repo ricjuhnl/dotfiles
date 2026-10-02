@@ -3,20 +3,20 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Launcher & Actions
-    Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty -e herdr"; }
     Mod+B hotkey-overlay-title="Open a browser: Zen" { spawn "zen-browser"; }
     Mod+E allow-when-locked=true hotkey-overlay-title="Yazi File Manager" { spawn-sh "kitty -e yazi"; }
 
     // Web apps (launch via .desktop files in ~/.local/share/applications/)
     Mod+Shift+Y hotkey-overlay-title="YouTube" { spawn "gtk-launch" "youtube"; }
     Mod+Shift+G hotkey-overlay-title="Gmail" { spawn "gtk-launch" "gmail"; }
-    Mod+Shift+M hotkey-overlay-title="Google Messages" { spawn "gtk-launch" "messages"; }
+    Mod+Shift+T hotkey-overlay-title="Google Messages" { spawn "gtk-launch" "teams"; }
 
     // Volume keys
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
-    // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
