@@ -6,3 +6,8 @@
 .config/spicetify/config-xpui.ini
 .config/spicetify/Themes/catppuccin
 .config/micro/buffers/history
+.config/herdr/session-snapshots/
+.config/herdr/*.sock
+.config/herdr/*.log
+.config/herdr/*.agent
+.config/herdr/session.json

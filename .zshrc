@@ -18,10 +18,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add in zsh plugins
-zinit ice wait"0" lucid depth=1 pick"deja.plugin.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light Giammarco-Ferranti/deja
 zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -36,11 +36,9 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
-# deja overrides
-export DEJA_ACCEPT_KEY=^L
-export DEJA_CYCLE_KEY=^N
-export DEJA_CYCLE_FUZZY_KEY=
-export DEJA_TOGGLE_EMPTY_KEY=
+# Load completions
+autoload -Uz compinit && compinit
+zinit cdreplay -q
 
 #load starship
 export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
