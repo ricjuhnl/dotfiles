@@ -9,8 +9,8 @@
         "apiKey": "sk-2e62d74abc2049d0b90516c86867fb1a"
       },
       "models": {
-        "datahub/Qwen3.8-27B-NVFP4": {
-          "name": "Qwen 3.8 27B",
+        "datahub/Qwen3.8-Flash-Next-NVFP4": {
+          "name": "Qwen 3.8 Flash Next",
           "limit": {
             "context": 262144,
             "output": 131072
@@ -39,11 +39,11 @@
             "output": 8192
           }
         },
-        "Qwen/Qwen3.6-27B-FP8": {
-          "name": "Qwen 3.6 27B",
+        "Qwen/Qwen3.8-27B-FP8": {
+          "name": "Qwen 3.8 27B",
           "limit": {
             "context": 262144,
-            "output": 8192
+            "output": 12144
           }
         },
         "Qwen/Qwen3.6-35B-A3B-FP8": {
