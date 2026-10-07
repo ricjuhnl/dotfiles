@@ -16,4 +16,12 @@ export XDG_CURRENT_DESKTOP=niri:GNOME
 # -----------------------------------------------------
 # PATH
 # -----------------------------------------------------
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.npm-global/bin:$HOME/.kubescape/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/usr/sbin"
+export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/usr/sbin"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Pi
+export PATH="$HOME/.pi/agent/bin:$PATH"

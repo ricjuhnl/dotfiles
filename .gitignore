@@ -15,3 +15,4 @@
 .config/opencode/*.jsonc
 .config/opencode/herdr-opencode/*.js
 .config/opencode/plugins/*.js
+.config/cava/shaders/

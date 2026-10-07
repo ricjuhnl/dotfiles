@@ -1,10 +1,5 @@
 palette = "noctalia"
-# Starship Configuration
-# A minimal, clean, and non-distracting prompt
-
-# Inserts a blank line between shell prompts
 add_newline = true
-
 # Configure the main prompt format (left side) - minimal and clean
 format = """
 $os\
@@ -37,11 +32,12 @@ format = '[@$hostname]($style) '
 # Prompt character
 [character]
 success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+error_symbol = '[✗](bold red)'
+vimcmd_symbol = '[V](bold green)'
 
 # Directory
 [directory]
-style = "fg:orange"
+style = "fg:peach"
 read_only_style = "fg:red"
 read_only = " 󰌾"
 truncation_length = 3
@@ -77,6 +73,9 @@ disabled = false
 contexts = [
   { context_pattern = "dev.local.cluster.k8s", symbol = "💔 " },
 ]
+
+[package]
+disabled = true
 
 # Version Control
 [fossil_branch]

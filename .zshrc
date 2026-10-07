@@ -133,11 +133,3 @@ eval "$(atuin init zsh --disable-up-arrow)"
 source "$HOME/.config/zshrc/00-init"
 source "$HOME/.config/zshrc/web-apps"
 source "$HOME/.vpn_openconnect"
-
-# bun completions
-[ -s "/home/rjuhasz/.bun/_bun" ] && source "/home/rjuhasz/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# opencode
-export PATH=/home/rjuhasz/.opencode/bin:$PATH

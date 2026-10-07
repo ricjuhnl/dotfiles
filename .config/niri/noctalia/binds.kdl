@@ -5,7 +5,8 @@ binds {
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
     // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
     Mod+L { spawn-sh "noctalia msg session lock"; }
-    Mod+F1 { spawn "noctalia" "msg" "panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"; }
+    Mod+K { spawn "noctalia" "msg" "panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"; }
+    Mod+Escape { spawn-sh "noctalia msg panel-toggle session"; }
 
     // Brightness
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }

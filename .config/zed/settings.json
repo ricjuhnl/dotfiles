@@ -16,7 +16,12 @@
   },
   "agent": {
     "sandbox_permissions": {
-      "network_hosts": ["opencode.ai"],
+      "network_hosts": [
+        "opencode.ai",
+        "raw.githubusercontent.com",
+        "docs.pi.ai",
+        "api.willma.surf.nl"
+      ],
     },
     "dock": "left",
     "default_model": {
