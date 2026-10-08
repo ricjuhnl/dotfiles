@@ -2,10 +2,6 @@ window-rule {
     geometry-corner-radius 3
     clip-to-geometry true
     draw-border-with-background false
-    opacity 0.9
-    background-effect {
-        blur true
-    }
 }
 // Zen Browser — extension popups have dynamic titles set after creation,
 // so title-based open-floating never matches. Float all zen windows instead.

@@ -41,7 +41,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #load starship
-export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # Keybindings
@@ -127,7 +127,7 @@ alias cat='bat'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(atuin init zsh)"
 
 #source externals
 source "$HOME/.config/zshrc/00-init"
