@@ -1,4 +1,5 @@
 {
+  "cli_default_open_behavior": "new_window",
   "edit_predictions": {
     "provider": "copilot",
   },
@@ -20,7 +21,7 @@
         "opencode.ai",
         "raw.githubusercontent.com",
         "docs.pi.ai",
-        "api.willma.surf.nl"
+        "api.willma.surf.nl",
       ],
     },
     "dock": "left",
