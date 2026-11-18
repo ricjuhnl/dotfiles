@@ -5,7 +5,7 @@
       "package": "@opencode/ai/providers/openai-compatible",
       "name": "DataHub Maastricht",
       "settings": {
-        "apiKey": "sk-2e62d74abc2049d0b90516c86867fb1a",
+        "apiKey": "123145667890",
         "baseURL": "https://chat.datahubmaastricht.nl/api/v1"
       },
       "models": {
