@@ -1,0 +1,12 @@
+[color]
+foreground = '#BFBDB6'
+background = '#0B0E14'
+gradient = 1
+gradient_color_1 = '#59C2FF'
+gradient_color_2 = '#95E6CB'
+gradient_color_3 = '#AAD94C'
+gradient_color_4 = '#E6B450'
+gradient_color_5 = '#FFB454'
+gradient_color_6 = '#F07178'
+
+horizontal_gradient = 0

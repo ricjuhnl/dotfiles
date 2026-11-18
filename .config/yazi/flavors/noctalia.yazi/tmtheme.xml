@@ -34,7 +34,7 @@
           <key>activeGuide</key>
           <string>#11151c</string>
           <key>findHighlight</key>
-          <string>#476111</string>
+          <string>#3a4a24</string>
           <key>gutterForeground</key>
           <string>#595f6a</string>
         </dict>
@@ -735,7 +735,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#d2eff9</string>
+          <string>#39bae6</string>
         </dict>
       </dict>
       <dict>
@@ -757,7 +757,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#d2eff9</string>
+          <string>#39bae6</string>
         </dict>
       </dict>
       <dict>
@@ -1060,7 +1060,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#d2eff9</string>
+          <string>#39bae6</string>
         </dict>
       </dict>
       <dict>
@@ -1180,7 +1180,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#363a40</string>
+          <string>#565b66</string>
           <key>fontStyle</key>
           <string>strikethrough</string>
         </dict>

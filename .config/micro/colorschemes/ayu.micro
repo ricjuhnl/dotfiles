@@ -1,0 +1,53 @@
+# Ayu Dark colorscheme for Micro
+
+color-link default "#BFBDB6"
+color-link comment "#5A6673"
+color-link identifier "#BFBDB6"
+color-link constant "#59C2FF"
+color-link constant.string "#AAD94C"
+color-link constant.number "#D2A6FF"
+color-link statement "#FF8F40"
+color-link type "#39BAE6"
+color-link preproc "#FFB454"
+color-link special "#E6B450"
+color-link symbol "#BFBDB6"
+color-link symbol.brackets "#565B66"
+color-link underlined "#59C2FF"
+color-link error "#F07178"
+color-link todo "#E6B450"
+
+color-link selection "#BFBDB6,#344054"
+color-link cursor-line "#141821"
+color-link line-number "#5A6673"
+color-link current-line-number "#E6B450"
+
+color-link gutter-info "#59C2FF"
+color-link gutter-warning "#E6B450"
+color-link gutter-error "#F07178"
+
+color-link statusline "#BFBDB6,#141821"
+color-link statusline.inactive "#8994A5,#0B0E14"
+color-link statusline.suggestions "#BFBDB6,#141821"
+
+color-link tabbar "#8994A5,#141821"
+color-link tabbar.active "#BFBDB6,#1B1F29"
+
+color-link diff-added "#AAD94C"
+color-link diff-modified "#59C2FF"
+color-link diff-deleted "#F07178"
+
+color-link message "#BFBDB6,#141821"
+color-link error-message "#BFBDB6,#482328"
+
+color-link indent-char "#565B66"
+color-link color-column "#141821"
+color-link divider "#565B66"
+color-link scrollbar "#565B66"
+
+color-link match-brace "#E6B450"
+color-link hlsearch "#E6B450"
+
+color-link tab-error "#F07178"
+color-link trailingws "#F07178"
+
+color-link ignore "#5A6673"

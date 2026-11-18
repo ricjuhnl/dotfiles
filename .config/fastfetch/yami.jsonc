@@ -1,0 +1,88 @@
+// YAMI: пишет tools/theme.py по палитре шелла
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file-raw",
+    "source": "/home/rjuhasz/.config/fastfetch/yami-logo.txt",
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;196;22;28",
+      "title": "38;2;255;29;36",
+      "output": "38;2;233;219;218",
+      "separator": "38;2;76;16;18"
+    },
+    "key": {
+      "width": 8
+    },
+    "bar": {
+      "char": {
+        "elapsed": "■",
+        "total": "·"
+      },
+      "width": 12,
+      "border": {
+        "left": "",
+        "right": ""
+      }
+    },
+    "percent": {
+      "type": 3,
+      "color": {
+        "green": "38;2;120;200;120",
+        "yellow": "38;2;255;170;40",
+        "red": "38;2;255;29;36"
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\u001b[38;2;196;22;28mYAMI \u001b[38;2;102;76;77m// \u001b[38;2;147;117;118mniri"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[38;2;76;16;18m──────────────────────────────"
+    },
+    {
+      "type": "title",
+      "key": "host",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "os",
+      "key": "os",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "wm",
+      "key": "wm",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "shell",
+      "key": "shell",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "terminal",
+      "key": "term",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "uptime",
+      "key": "uptime"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[48;2;15;8;8m   \u001b[48;2;24;13;13m   \u001b[48;2;76;16;18m   \u001b[48;2;123;14;18m   \u001b[48;2;196;22;28m   \u001b[48;2;255;29;36m   \u001b[48;2;147;117;118m   \u001b[48;2;233;219;218m   \u001b[0m"
+    }
+  ]
+}

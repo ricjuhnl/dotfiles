@@ -3,7 +3,7 @@ set -euo pipefail
 
 config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
 config_file="${HERDR_CONFIG_PATH:-$config_home/herdr/config.toml}"
-colors_file="$config_home/herdr/noctalia-colors.toml"
+colors_file="$config_home/herdr/ayu-colors.toml"
 
 if [ ! -f "$config_file" ]; then
     echo "Error: Herdr config file not found at $config_file" >&2

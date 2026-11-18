@@ -1,4 +1,9 @@
 {
+  "agent_servers": {
+    "antigravity-acp": {
+      "type": "registry"
+    }
+  },
   "cli_default_open_behavior": "new_window",
   "edit_predictions": {
     "provider": "copilot",
@@ -27,7 +32,7 @@
     "dock": "left",
     "default_model": {
       "provider": "Willma",
-      "model": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "model": "Qwen/Qwen3.8-27B-FP8",
       "enable_thinking": false,
     },
     "tool_permissions": {
@@ -125,7 +130,7 @@
   "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
-    "light": "Noctalia Light",
+    "light": "Ayu Dark",
     "dark": "Ayu Dark",
   },
   "autosave": "on_focus_change",

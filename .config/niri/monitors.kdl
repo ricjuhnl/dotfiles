@@ -22,3 +22,13 @@ output "Philips Consumer Electronics Company PHL 49B2U6900 AU02427001147" {
     transform "normal"
     position x=0 y=0
 }
+output "DP-3" {
+    variable-refresh-rate
+
+    mode "5120x1440@75.001"
+
+    scale 1.0
+
+    transform "normal"
+    position x=0 y=0
+}

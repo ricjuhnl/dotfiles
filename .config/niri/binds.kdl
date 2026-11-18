@@ -3,9 +3,10 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Launcher & Actions
-    Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty -e herdr"; }
+    Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty"; }
     Mod+B hotkey-overlay-title="Open a browser: Zen" { spawn "zen-browser"; }
     Mod+E allow-when-locked=true hotkey-overlay-title="Yazi File Manager" { spawn-sh "kitty -e yazi"; }
+    Ctrl+Alt+V hotkey-overlay-title="Type Clipboard" { spawn-sh "sleep 0.3 && ydotool type --key-delay 15 -- \"$(wl-paste --no-newline)\""; }
 
     // Web apps (launch via .desktop files in ~/.local/share/applications/)
     Mod+Shift+Y hotkey-overlay-title="YouTube" { spawn "gtk-launch" "youtube"; }
@@ -107,7 +108,7 @@ binds {
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-
+    // Window binds
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
@@ -116,10 +117,8 @@ binds {
     Mod+C { center-column; }
     Mod+F { maximize-column; }
     Mod+Ctrl+C { center-visible-columns; }
-
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
-
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 

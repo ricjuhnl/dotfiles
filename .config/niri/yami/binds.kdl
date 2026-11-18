@@ -1,0 +1,12 @@
+binds {
+    // Shell shortcuts; personal window and application bindings stay in ../binds.kdl.
+    Mod+Space { spawn "/home/rjuhasz/.local/bin/yami" "open" "launcher"; }
+    Mod+S { spawn "/home/rjuhasz/.local/bin/yami" "open" "sys"; }
+    Mod+Comma { spawn "/home/rjuhasz/.local/bin/yami" "open" "settings"; }
+    Mod+L { spawn "/home/rjuhasz/.local/bin/yami" "open" "lock"; }
+    Mod+K { spawn "/home/rjuhasz/.local/bin/yami" "open" "settings:keys"; }
+    Mod+Escape { spawn "/home/rjuhasz/.local/bin/yami" "open" "power"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+}

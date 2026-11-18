@@ -211,19 +211,20 @@
 ; waveform = 0
 
 [color]
-theme = "noctalia"
-background = '#1e1e2e'
-
 gradient = 1
+gradient_count = 6
+gradient_color_1 = '#59C2FF'
+gradient_color_2 = '#95E6CB'
+gradient_color_3 = '#AAD94C'
+gradient_color_4 = '#E6B450'
+theme = "ayu"
+background = '#0B0E14'
 
-gradient_color_1 = '#94e2d5'
-gradient_color_2 = '#89dceb'
-gradient_color_3 = '#74c7ec'
-gradient_color_4 = '#89b4fa'
-gradient_color_5 = '#cba6f7'
-gradient_color_6 = '#f5c2e7'
-gradient_color_7 = '#eba0ac'
-gradient_color_8 = '#f38ba8'
+
+gradient_color_5 = '#FFB454'
+gradient_color_6 = '#F07178'
+gradient_color_7 = '#F07178'
+gradient_color_8 = '#F07178'
 
 [smoothing]
 # Percentage value for integral smoothing. Takes values from 0 - 100.

@@ -2,12 +2,17 @@ window-rule {
     geometry-corner-radius 3
     clip-to-geometry true
     draw-border-with-background false
+    opacity 0.8
+    background-effect {
+        blur true
+    }
 }
 // Zen Browser — extension popups have dynamic titles set after creation,
 // so title-based open-floating never matches. Float all zen windows instead.
 window-rule {
     match app-id="zen"
     open-floating true
+    opacity 1.0
 }
 window-rule {
     match app-id=r"blueman-manager$"
@@ -40,9 +45,4 @@ window-rule {
     default-column-width { proportion 0.25; }
 }
 
-window-rule {
-    match is-focused=true
-    background-effect {
-        blur true
-    }
-}
+window-rule { match app-id=r"^zen$" is-active=true is-focused=true; exclude app-id=r"^zen$"; background-effect { blur true; }; }

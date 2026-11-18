@@ -17,6 +17,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Ensure ~/.local/bin is on PATH before plugins load
 export PATH="$HOME/.local/bin:$PATH"
 
+# Snippets (OMZP::ssh) run `grep -E/-v` at load time; the `grep` alias to rg
+# would break them on re-source. Drop it while the zinit block runs.
+unalias grep 2>/dev/null
+
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
@@ -103,8 +107,8 @@ function yy() {
 }
 
 # Aliases
-alias ls='ls --color'
-alias ll='ls -la'
+alias ls='eza'
+alias ll='eza -la'
 alias tree='eza --tree --icons'
 alias cls='clear'
 alias zshconfig="micro ~/.zshrc"
@@ -133,3 +137,7 @@ eval "$(atuin init zsh)"
 source "$HOME/.config/zshrc/00-init"
 source "$HOME/.config/zshrc/web-apps"
 source "$HOME/.vpn_openconnect"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/rjuhasz/.local/bin:$PATH"

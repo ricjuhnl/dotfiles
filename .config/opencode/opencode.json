@@ -1,16 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
+  "providers": {
     "datahub": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "@opencode/ai/providers/openai-compatible",
       "name": "DataHub Maastricht",
-      "options": {
-        "baseURL": "https://chat.datahubmaastricht.nl/api/v1",
-        "apiKey": "sk-2e62d74abc2049d0b90516c86867fb1a"
+      "settings": {
+        "apiKey": "sk-2e62d74abc2049d0b90516c86867fb1a",
+        "baseURL": "https://chat.datahubmaastricht.nl/api/v1"
       },
       "models": {
-        "datahub/Qwen3.8-Flash-Next-NVFP4": {
-          "name": "Qwen 3.8 Flash Next",
+        "qwen3.8-27b-fp8-mtp-vllm": {
+          "modelID": "datahub/qwen3.8-27b-fp8-mtp-vllm",
+          "name": "Qwen 3.8 27B",
           "limit": {
             "context": 262144,
             "output": 131072
@@ -19,10 +20,10 @@
       }
     },
     "Willma": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "@opencode/ai/providers/openai-compatible",
       "name": "SURF Willma",
-      "options": {
-        "baseURL": "https://willma.surf.nl/api/v0"
+      "settings": {
+        "baseURL": "https://api.willma.surf.nl/v0"
       },
       "models": {
         "Sehyo/Qwen3.5-122B-A10B-NVFP4": {
@@ -53,6 +54,14 @@
             "output": 8192
           }
         }
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "atuin": {
+        "type": "local",
+        "command": ["/usr/bin/atuin", "mcp"]
       }
     }
   }
