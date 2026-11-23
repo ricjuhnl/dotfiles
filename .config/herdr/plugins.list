@@ -1,0 +1,4 @@
+# Herdr plugins to install (see install-plugins.sh).
+# One plugin per line: OWNER/REPO[/SUBDIR] [--ref <commit-or-tag>]
+# Lines starting with # are ignored.
+plannotator/herdr-annotate --ref cb0a8e6225e33f4662096cb450e2c1e18b244b07
