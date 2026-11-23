@@ -1,0 +1,18 @@
+# Umbriel loader.
+#
+# Umbriel applies the included files in list order; the last file to set a
+# key wins (docs: configuration → Include):
+#
+#   morgan-atajos.toml  morgan's window shortcuts, written by `morgan setup`
+#   user.toml           the hand-written config; overrides morgan-atajos.toml
+#   morgan.toml         written by morgan itself (its shortcuts, layer rules,
+#                       theme); overrides user.toml
+#
+# All three are optional includes: Umbriel starts fine before morgan has
+# written its files, and picks them up as they appear.
+#
+# Keep this file a pure loader (only [include] keys, morgan.toml last):
+# `morgan setup` checks for exactly that shape.
+
+[include.optional]
+files = ["morgan-atajos.toml", "user.toml", "morgan.toml"]

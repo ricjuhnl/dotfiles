@@ -1,0 +1,388 @@
+# Umbriel user config (hand-written).
+#
+# Ported from ~/.config/niri: binds.kdl, yami/binds.kdl, config.kdl, rules.kdl.
+# Scrolling layout, morgan as the shell (replaces yami).
+#
+# Load order (config.toml): morgan-atajos.toml → user.toml (this file) →
+# morgan.toml. The last file to set a key wins, so:
+#   - this file overrides morgan's window shortcuts (morgan-atajos.toml),
+#   - morgan's own shortcuts (morgan.toml) override this file.
+#
+# Keys morgan owns once it is running (don't remap here; they would be
+# overridden anyway):
+#   Super+Space launcher            Super+Tab overview
+#   Super+N control center          Super+Comma system menu
+#   Super+V clipboard               Super+Y wallpapers
+#   Super+Shift+N do-not-disturb    Super+X power
+#   Super+Alt+L lock
+#   XF86 volume/brightness keys (morganctl, with morgan's OSDs)
+#   Print / Ctrl+Print / Alt+Print screenshots (grim + slurp)
+#
+# Check without a running session:  umbriel config validate
+
+# ==============================================================================
+# General
+
+[general]
+mod_key = "Super"
+# niri: hotkey-overlay { skip-at-startup }
+show_cheatsheet = false
+# morgan runs as a systemd user service, enabled by `morgan setup` —
+# it is not started here.
+autostart = [
+  "wl-paste --type text --watch cliphist store",
+  "wl-paste --type image --watch cliphist store",
+  "/usr/lib/xdg-desktop-portal-gtk",
+  "/usr/lib/xdg-desktop-portal-gnome",
+]
+
+# ==============================================================================
+# Environment
+# XDG_CURRENT_DESKTOP and the session variables are owned by Umbriel and
+# cannot be set here.
+
+[environment]
+MOZ_ENABLE_WAYLAND = "1"
+QT_QPA_PLATFORM = "wayland"
+ELECTRON_OZONE_PLATFORM_HINT = "wayland"
+QT_QPA_PLATFORMTHEME = "gtk3"
+QT_QPA_PLATFORMTHEME_QT6 = "gtk3"
+TERMINAL = "kitty"
+
+# ==============================================================================
+# Input
+
+[input.keyboard]
+repeat_rate = 35
+repeat_delay = 200
+numlock_toggle = true
+
+[input.touchpad]
+tap = true
+natural_scroll = true
+
+[input.cursor]
+theme = "Nordzy-cursors-white"
+size = 24
+# niri: warp-mouse-to-focus
+follows_focus = true
+
+[input.focus]
+follows_mouse = "sloppy"
+# niri: focus-follows-mouse max-scroll-amount="0%"
+follows_mouse_max_scroll = 0.0
+
+# ==============================================================================
+# Layout
+
+[layout]
+mode = "scrolling"
+gap = 5
+# niri: preset-column-widths
+extent_presets = [0.25, 0.33, 0.5, 0.75, 1.0]
+
+[layout.scrolling]
+# niri: default-column-width proportion 0.25
+default_extent_fraction = 0.25
+
+[layout.tabs]
+# niri: default-column-display "tabbed"
+default_display = "tabbed"
+
+# Keep dynamic workspaces starting at 1 (empty_above = true always keeps an
+# empty workspace at index 1, shifting the first window to workspace 2).
+[workspaces]
+empty_above = false
+
+# ==============================================================================
+# Appearance
+# niri rules.kdl: 3px corners, 2px focus ring, no shadows, translucent
+# windows over a blurred backdrop. Once morgan is running, its theme
+# (morgan.toml) sets the palette instead.
+
+[appearance]
+# niri: prefer-no-csd
+prefer_no_csd = true
+# niri's default border width
+border_width = 2
+# niri: geometry-corner-radius 3
+corner_radius = 3
+
+[appearance.shadow]
+enabled = false
+
+[appearance.blur]
+enabled = true
+
+[appearance.tab_bar]
+# Hide the tab bar on single-window columns (default_display = "tabbed"
+# otherwise draws a 24px title bar above every window).
+hide_when_single = true
+
+[colors]
+# niri's transparent background over the yami wallpaper layer; morgan's
+# wallpaper layer replaces it once the shell is up.
+background = "#0b0e14FF"
+
+[colors.border]
+# niri: focus-ring / border active-color, inactive-color.
+# Umbriel has no urgent border color (niri's #d95757 has no equivalent).
+focused = "#e6b450FF"
+unfocused = "#0b0e14FF"
+
+# ==============================================================================
+# Events
+# Disable the internal laptop panel when the lid closes and re-enable it when
+# opened. Umbriel also checks the lid state once on startup.
+
+[events]
+lid_close = "umbriel msg output-disable eDP-1"
+lid_open = "umbriel msg output-enable eDP-1"
+
+# ==============================================================================
+# Outputs
+# Machine-specific: run `umbriel outputs` to find connector names and modes.
+# The niri monitors.kdl entries (eDP-1, AOC, LG, Philips 49", DP-3 with VRR)
+# map one-to-one, but re-check the names.
+#
+# [output.eDP-1]
+# mode = "1920x1200@60"
+# position = [0, 0]
+#
+# [output.DP-3]
+# mode = "5120x1440@75"
+# vrr = "always"
+# position = [0, 0]
+
+# ==============================================================================
+# Keybinds
+# Ported from niri binds.kdl and yami/binds.kdl. `Mod` = Super.
+#
+# Deliberate differences from Umbriel's defaults:
+#   Mod+Ctrl+arrows   moves columns/windows   (defaults use it for resizing)
+#   Mod+Shift+arrows  focuses the monitor     (default: move the column)
+#   Mod+Space         is morgan's launcher, so the scratchpad moved to BackSpace
+
+[keybinds]
+
+# ── Applications and session ────────────────────────────────────────────────
+
+"Mod+Return" = { action = "spawn kitty", repeat = false }
+"Mod+B" = "spawn zen-browser"
+"Mod+E" = { action = "spawn kitty -e yazi", repeat = false }
+"Mod+Shift+Y" = "spawn gtk-launch youtube"
+"Mod+Shift+G" = "spawn gtk-launch gmail"
+"Mod+Shift+T" = "spawn gtk-launch teams"
+# niri: type the clipboard (ydotool)
+"Ctrl+Alt+V" = "spawn sleep 0.3 && ydotool type --key-delay 15 -- \"$(wl-paste --no-newline)\""
+
+# niri: show-hotkey-overlay
+"Mod+Shift+Slash" = "cheatsheet-toggle"
+
+# niri: toggle-overview / close-window
+"Mod+O" = { action = "overview-toggle", repeat = false }
+"Mod+Q" = { action = "window-close", repeat = false }
+
+# niri: quit (with confirmation)
+"Mod+Shift+E" = "session-quit"
+"Ctrl+Alt+Delete" = "session-quit"
+
+# niri: power-off-monitors
+"Mod+Shift+P" = "dpms-off"
+
+# Escape hatch for keyboard shortcut inhibitors (remote desktop, KVM, games)
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+
+# ── Media, volume and brightness ───────────────────────────────────────────
+# Fallbacks for when morgan is not running. While it is, morgan's own
+# bindings (morgan.toml) win and route through morganctl with its OSDs.
+
+"XF86AudioRaiseVolume" = { action = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", allow_when_locked = true, repeat = false }
+"XF86AudioMicMute" = { action = "spawn wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn playerctl play-pause", allow_when_locked = true, repeat = false }
+"XF86AudioStop" = { action = "spawn playerctl stop", allow_when_locked = true, repeat = false }
+"XF86AudioPrev" = { action = "spawn playerctl previous", allow_when_locked = true }
+"XF86AudioNext" = { action = "spawn playerctl next", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn brightnessctl set 5%+", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn brightnessctl set 5%-", allow_when_locked = true }
+
+# ── Focus ───────────────────────────────────────────────────────────────────
+
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-or-workspace-down"
+"Mod+Up" = "window-focus-or-workspace-up"
+"Mod+Right" = "window-focus-right"
+# vim aliases (also in morgan-atajos.toml)
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+
+# ── Move columns and windows ────────────────────────────────────────────────
+
+"Mod+Ctrl+Left" = "column-move-left"
+"Mod+Ctrl+Down" = "window-move-or-workspace-down"
+"Mod+Ctrl+Up" = "window-move-or-workspace-up"
+"Mod+Ctrl+Right" = "column-move-right"
+
+"Mod+Home" = "column-focus-first"
+"Mod+End" = "column-focus-last"
+"Mod+Ctrl+Home" = "column-move-to-first"
+"Mod+Ctrl+End" = "column-move-to-last"
+
+# ── Monitors ────────────────────────────────────────────────────────────────
+
+"Mod+Shift+Left" = "output-focus-left"
+"Mod+Shift+Down" = "output-focus-down"
+"Mod+Shift+Up" = "output-focus-up"
+"Mod+Shift+Right" = "output-focus-right"
+"Mod+Shift+H" = "output-focus-left"
+"Mod+Shift+J" = "output-focus-down"
+"Mod+Shift+K" = "output-focus-up"
+"Mod+Shift+L" = "output-focus-right"
+
+# Move to monitor: covered by morgan-atajos.toml (Mod+Ctrl+Shift+arrows and
+# HJKL, same actions). Do not bind them here with a different modifier order:
+# Umbriel then sees two keys for one chord and warns "duplicate keybind".
+
+# ── Mousewheel ──────────────────────────────────────────────────────────────
+
+"Mod+WheelDown" = { action = "workspace-next", cooldown_ms = 150 }
+"Mod+WheelUp" = { action = "workspace-previous", cooldown_ms = 150 }
+"Mod+Ctrl+WheelDown" = { action = "column-move-to-workspace-next", cooldown_ms = 150 }
+"Mod+Ctrl+WheelUp" = { action = "column-move-to-workspace-previous", cooldown_ms = 150 }
+
+"Mod+WheelRight" = "window-focus-right"
+"Mod+WheelLeft" = "window-focus-left"
+"Mod+Ctrl+WheelRight" = "column-move-right"
+"Mod+Ctrl+WheelLeft" = "column-move-left"
+"Mod+Shift+WheelDown" = "window-focus-right"
+"Mod+Shift+WheelUp" = "window-focus-left"
+"Mod+Ctrl+Shift+WheelDown" = "column-move-right"
+"Mod+Ctrl+Shift+WheelUp" = "column-move-left"
+
+# ── Workspaces ──────────────────────────────────────────────────────────────
+
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+
+# niri moves the whole column, so column-move-to-workspace: it keeps stacked
+# windows and tab groups, while window-move-to-workspace would move one row.
+"Mod+Ctrl+1" = "column-move-to-workspace 1"
+"Mod+Ctrl+2" = "column-move-to-workspace 2"
+"Mod+Ctrl+3" = "column-move-to-workspace 3"
+"Mod+Ctrl+4" = "column-move-to-workspace 4"
+"Mod+Ctrl+5" = "column-move-to-workspace 5"
+"Mod+Ctrl+6" = "column-move-to-workspace 6"
+"Mod+Ctrl+7" = "column-move-to-workspace 7"
+"Mod+Ctrl+8" = "column-move-to-workspace 8"
+"Mod+Ctrl+9" = "column-move-to-workspace 9"
+
+# ── Consume / expel ─────────────────────────────────────────────────────────
+
+"Mod+BracketLeft" = "window-consume-or-expel-left"
+"Mod+BracketRight" = "window-consume-or-expel-right"
+
+# ── Window state and sizing ─────────────────────────────────────────────────
+
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-secondary-extent"
+# niri: reset-window-height. There is no reset action; a full-height row is
+# the closest thing.
+"Mod+Ctrl+R" = "window-set-secondary-extent 1.0"
+
+"Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
+# niri: expand-column-to-available-width
+"Mod+Ctrl+F" = "window-set-primary-extent 1.0"
+"Mod+C" = { action = "column-center", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+# niri: center-visible-columns has no equivalent.
+
+"Mod+Minus" = "window-modify-primary-extent -0.1"
+"Mod+Equal" = "window-modify-primary-extent 0.1"
+"Mod+Shift+Minus" = "window-modify-secondary-extent -0.1"
+"Mod+Shift+Equal" = "window-modify-secondary-extent 0.1"
+
+# niri toggled floating on Mod+V, but Super+V is morgan's clipboard history;
+# Mod+T carries it instead (also in morgan-atajos.toml).
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+# niri: switch-focus-between-floating-and-tiling
+"Mod+Shift+V" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+
+# ── Screenshots ─────────────────────────────────────────────────────────────
+# Fallbacks for when morgan is not running; morgan binds the same keys
+# through grim + slurp once morgan.toml exists, and wins.
+# niri semantics: Print = focused output, Ctrl+Print = all outputs,
+# Alt+Print = focused window.
+
+"Print" = { action = "spawn grim -o \"$(umbriel outputs --json | jq -r '.[] | select(.focused) | .name')\" \"~/Pictures/Screenshots/Screenshot from $(date +%Y-%m-%d_%H-%M-%S).png\"", repeat = false }
+"Ctrl+Print" = { action = "spawn grim \"~/Pictures/Screenshots/Screenshot from $(date +%Y-%m-%d_%H-%M-%S).png\"", repeat = false }
+"Alt+Print" = { action = "spawn grim -g \"$(umbriel focused-window --json | jq -r '\"\\(.x),\\(.y) \\(.w)x\\(.h)\"')\" \"~/Pictures/Screenshots/Screenshot from $(date +%Y-%m-%d_%H-%M-%S).png\"", repeat = false }
+
+# ── Scratchpad ──────────────────────────────────────────────────────────────
+# The built-in default scratchpad binds Mod+Space, which morgan uses for the
+# launcher, so it gets a name (defined below) and its own keys.
+
+"Mod+BackSpace" = "scratchpad-toggle scratch"
+"Mod+Shift+BackSpace" = { action = "window-move-to-scratchpad scratch", repeat = false }
+"Mod+Ctrl+BackSpace" = { action = "window-restore-from-scratchpad scratch", repeat = false }
+
+# ── Shell ───────────────────────────────────────────────────────────────────
+# All yami keys are covered by morgan's own binds (see the top of this file):
+# Super+Space launcher, Super+Comma menu, Super+N control center,
+# Super+Alt+L lock, Super+X power.
+
+# ==============================================================================
+# Scratchpad
+
+[[scratchpad]]
+name = "scratch"
+
+# ==============================================================================
+# Window rules
+# Ported from niri rules.kdl. Every matching rule contributes; later rules
+# win per field.
+
+# Global window-rule: subtle translucency over a blurred backdrop.
+[[window_rule]]
+opacity = 0.9
+blur = true
+
+# niri: zen — float every window (extension popups get dynamic titles), opaque.
+[[window_rule]]
+match.app_id = "^zen$"
+default_floating = true
+opacity = 1.0
+
+[[window_rule]]
+match.app_id = "^blueman-manager$"
+default_floating = true
+
+[[window_rule]]
+match.app_id = "^nm-connection-editor$"
+default_floating = true
+
+# niri: floating, 0.25 column width, fixed 800px height.
+[[window_rule]]
+match.app_id = "^pavucontrol$"
+default_floating = true
+default_floating_size_px = { width = 640, height = 800 }
+
+# niri: floating, 0.15 column width, fixed 500px height.
+[[window_rule]]
+match.title = "openconnect-saml"
+default_floating = true
+default_floating_size_px = { width = 384, height = 500 }
+
+# kitty: niri gave it a 0.25 default column width — that is already the
+# global default above (layout.scrolling.default_extent_fraction), so no rule.

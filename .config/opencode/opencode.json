@@ -5,7 +5,7 @@
       "package": "@opencode/ai/providers/openai-compatible",
       "name": "DataHub Maastricht",
       "settings": {
-        "apiKey": "123145667890",
+        "apiKey": "sk-4def9db32c1d478eb439a2beafe0defb",
         "baseURL": "https://chat.datahubmaastricht.nl/api/v1"
       },
       "models": {
@@ -62,6 +62,10 @@
       "atuin": {
         "type": "local",
         "command": ["/usr/bin/atuin", "mcp"]
+      },
+      "atlassian": {
+        "type": "local",
+        "command": ["npx", "-y", "mcp-remote", "https://mcp.atlassian.com/v2/mcp"]
       }
     }
   }
