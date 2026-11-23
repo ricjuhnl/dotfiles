@@ -179,12 +179,12 @@ lid_open = "umbriel msg output-enable eDP-1"
 # niri: show-hotkey-overlay
 "Mod+Shift+Slash" = "cheatsheet-toggle"
 
-# niri: toggle-overview / close-window
-"Mod+O" = { action = "overview-toggle", repeat = false }
+# Close window (overview is on Super+Tab via morgan.toml and the top-left hot
+# corner; Mod+O is Obsidian in morgan-atajos.toml)
 "Mod+Q" = { action = "window-close", repeat = false }
 
-# niri: quit (with confirmation)
-"Mod+Shift+E" = "session-quit"
+# niri: quit (with confirmation; Mod+Shift+E is Nautilus in morgan-atajos.toml,
+# and Super+X opens morgan's session menu)
 "Ctrl+Alt+Delete" = "session-quit"
 
 # niri: power-off-monitors
